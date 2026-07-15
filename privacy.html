@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy · SEA-COMPUTE</title>
-  <meta name="description" content="Privacy Policy for SEA-COMPUTE cross-border cloud computing marketplace.">
+  <meta name="description" content="SEA-COMPUTE Privacy Policy. GDPR-compatible data handling, KYC-Lite verification, data retention, user rights.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary: '#2563EB' },
+          colors: { primary: '#2563EB', success: '#10B981', warning: '#F59E0B', danger: '#EF4444' },
           fontFamily: { sans: ['Inter', 'PingFang SC', 'sans-serif'] },
         },
       },
@@ -18,122 +18,233 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%); }
+    .hero-glow { background: radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%); }
+  </style>
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased">
-  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
-        <span class="font-bold text-xl text-gray-900">SEA-COMPUTE</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="pricing.html" class="text-sm font-medium text-gray-600 hover:text-primary">Pricing</a>
-        <a href="about.html" class="text-sm font-medium text-gray-600 hover:text-primary">About</a>
-        <a href="terms.html" class="text-sm font-medium text-gray-600 hover:text-primary">Terms</a>
-        <a href="privacy.html" class="text-sm font-medium text-primary">Privacy</a>
-        <a href="index.html#register" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Get Started</a>
-      </nav>
+<body class="bg-slate-950 text-slate-200 font-sans">
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-white">SEA-COMPUTE</a>
+      <div class="hidden md:flex gap-8 text-sm">
+        <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+        <a href="/about.html" class="text-slate-400 hover:text-white transition">About</a>
+        <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+        <a href="/terms.html" class="text-slate-400 hover:text-white transition">Terms</a>
+        <a href="/privacy.html" class="text-primary font-medium">Privacy</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <section class="pt-24 pb-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-      <p class="text-gray-500 mb-8">Last updated: July 15, 2026</p>
+  <!-- Hero -->
+  <section class="hero-bg pt-32 pb-16 relative">
+    <div class="hero-glow absolute inset-0"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Privacy Policy</h1>
+      <p class="text-slate-400">Effective: 2026-07-15 · Last updated: 2026-07-15</p>
+    </div>
+  </section>
 
-      <div class="prose prose-gray max-w-none">
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Data Controller</h2>
-        <p class="text-gray-700 mb-4">SEA-COMPUTE is the data controller for all personal information collected through our platform. We are committed to protecting your privacy in accordance with the General Data Protection Regulation (GDPR) and other applicable data protection laws.</p>
-        <p class="text-gray-700 mb-4"><strong>Data Controller:</strong> SEA-COMPUTE<br><strong>Address:</strong> 123 Computing Street, Singapore<br><strong>Email:</strong> privacy@sea-compute.com</p>
+  <!-- Content -->
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-slate-300 mb-8">SEA-COMPUTE ("we", "us") is committed to protecting your privacy. This Privacy Policy explains what data we collect, why we collect it, how we use it, and what rights you have. This policy is designed to be compatible with the General Data Protection Regulation (GDPR) and other applicable data protection laws.</p>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Information We Collect</h2>
-        <p class="text-gray-700 mb-4">We collect information necessary to provide our cross-border cloud computing services:</p>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-          <li>Account information (name, email, payment details)</li>
-          <li>Usage data (compute hours, resource consumption)</li>
-          <li>Technical data (IP address, browser type, device information)</li>
-          <li>KYC-Lite verification data where required</li>
-        </ul>
+      <!-- §1 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§1. Data Controller</h2>
+        <p class="text-slate-300">SEA-COMPUTE is the data controller for personal data collected through this platform. Contact: <a href="mailto:sea.compute.hp+compliance@gmail.com" class="text-primary hover:underline">sea.compute.hp+compliance@gmail.com</a></p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Subject Rights</h2>
-        <p class="text-gray-700 mb-4">Under GDPR and applicable data protection laws, you have the following rights:</p>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-          <li><strong>Right of access</strong> — Request a copy of your personal data</li>
-          <li><strong>Right to rectification</strong> — Correct inaccurate personal data</li>
-          <li><strong>Right to erasure</strong> — Request deletion of your personal data</li>
-          <li><strong>Right to restrict processing</strong> — Limit how we use your data</li>
-          <li><strong>Right to data portability</strong> — Receive your data in a portable format</li>
-          <li><strong>Right to object</strong> — Object to processing of your personal data</li>
-        </ul>
-        <p class="text-gray-700 mb-4">To exercise any of these rights, contact us at privacy@sea-compute.com.</p>
+      <!-- §2 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§2. Data We Collect</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Category</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Examples</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">When Collected</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-300">
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Account</td>
+                <td class="py-3 px-4">Email, username, password hash</td>
+                <td class="py-3 px-4">Registration</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Identity (KYC)</td>
+                <td class="py-3 px-4">Name, date of birth, ID document</td>
+                <td class="py-3 px-4">KYC-Lite verification</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Financial</td>
+                <td class="py-3 px-4">Payment method, transaction history</td>
+                <td class="py-3 px-4">Top-up, withdrawal</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Technical</td>
+                <td class="py-3 px-4">IP address, browser, device info</td>
+                <td class="py-3 px-4">Every session</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4">Usage</td>
+                <td class="py-3 px-4">Instance types, duration, spend</td>
+                <td class="py-3 px-4">During service use</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Data Retention</h2>
-        <p class="text-gray-700 mb-4">We retain personal data only as long as necessary to provide our services and comply with legal obligations:</p>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-          <li>Active account data: retained for the duration of your account</li>
-          <li>After account closure: retained for 2 years for legal and tax compliance</li>
-          <li>Billing records: retained for 7 years as required by law</li>
-          <li>Server logs: retained for 90 days</li>
-        </ul>
+      <!-- §3 KYC-Lite -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§3. KYC-Lite Verification</h2>
+        <p class="text-slate-300 mb-3">We use a graduated verification model to balance regulatory compliance with user convenience:</p>
+        <div class="space-y-3 ml-2">
+          <div class="bg-slate-900 rounded-lg p-4 border border-slate-800">
+            <h4 class="text-white font-semibold">Stage 1 — Basic (Required for all accounts)</h4>
+            <p class="text-slate-400 text-sm">Email verification + valid payment method. No identity documents required.</p>
+          </div>
+          <div class="bg-slate-900 rounded-lg p-4 border border-slate-800">
+            <h4 class="text-white font-semibold">Stage 2 — Enhanced (Triggered by usage patterns)</h4>
+            <p class="text-slate-400 text-sm">Required when: cumulative spend exceeds USD $500, or withdrawal requests exceed USD $200/month. Requires government-issued photo ID.</p>
+          </div>
+          <div class="bg-slate-900 rounded-lg p-4 border border-slate-800">
+            <h4 class="text-white font-semibold">Stage 3 — Full (For high-volume or business accounts)</h4>
+            <p class="text-slate-400 text-sm">Required when: monthly spend exceeds USD $5,000, or operating as a business entity. Requires proof of address + source of funds declaration.</p>
+          </div>
+        </div>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Target Market Restrictions</h2>
-        <p class="text-gray-700 mb-4">SEA-COMPUTE does not provide services to users located in US-sanctioned countries or regions. We strictly comply with all applicable export control and sanctions regulations. Services are not available to users in:</p>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+      <!-- §4 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§4. Anti-Money Laundering (AML)</h2>
+        <p class="text-slate-300 mb-3">We are required to screen users against sanctions lists (OFAC, EU, UN) and monitor for suspicious transaction patterns. This is a legal obligation and not a discretionary practice.</p>
+        <p class="text-slate-300">Screening occurs at registration and periodically thereafter. If a match is found, the account may be restricted pending manual review.</p>
+      </div>
+
+      <!-- §5 -->
+      <div class="mb-10 bg-danger/10 rounded-xl p-6 border border-danger/30">
+        <h2 class="text-2xl font-bold text-white mb-4">§5. Excluded Markets</h2>
+        <p class="text-slate-300 mb-3">Due to international sanctions and regulatory restrictions, we do not provide services to users located in or resident of:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2">
           <li>Russia</li>
           <li>Iran</li>
-          <li>DPRK (North Korea)</li>
+          <li>Democratic People's Republic of Korea (DPRK / North Korea)</li>
           <li>Cuba</li>
           <li>Syria</li>
-          <li>Other US-sanctioned regions as designated by OFAC</li>
+          <li>Other OFAC-sanctioned jurisdictions</li>
         </ul>
+        <p class="text-slate-400 text-sm mt-3">Accounts found to be operated from these jurisdictions will be suspended and funds returned via the original payment method where possible.</p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">DPO Contact</h2>
-        <p class="text-gray-700 mb-4">Our Data Protection Officer can be reached at:</p>
-        <p class="text-gray-700 mb-4"><strong>DPO Email:</strong> privacy@sea-compute.com<br><strong>Address:</strong> 123 Computing Street, Singapore</p>
+      <!-- §6 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§6. Data Retention</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Data Type</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Retention Period</th>
+                <th class="text-left py-3 px-4 text-slate-400 font-medium">Basis</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-300">
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Account data</td>
+                <td class="py-3 px-4">Account lifetime + 5 years after closure</td>
+                <td class="py-3 px-4">Legal obligation</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Financial records</td>
+                <td class="py-3 px-4">10 years</td>
+                <td class="py-3 px-4">Tax / AML law</td>
+              </tr>
+              <tr class="border-b border-slate-800">
+                <td class="py-3 px-4">Technical logs (IP, sessions)</td>
+                <td class="py-3 px-4">180 days</td>
+                <td class="py-3 px-4">Legitimate interest</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4">Communication records</td>
+                <td class="py-3 px-4">3 years</td>
+                <td class="py-3 px-4">Dispute resolution</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">International Data Transfers</h2>
-        <p class="text-gray-700 mb-4">As a cross-border service provider, your data may be processed in multiple jurisdictions. We ensure all transfers comply with GDPR Chapter V requirements through Standard Contractual Clauses or adequacy decisions.</p>
+      <!-- §7 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§7. Your Rights</h2>
+        <p class="text-slate-300 mb-3">Depending on your jurisdiction, you may have the following rights:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2 mb-3">
+          <li><strong class="text-white">Access</strong>: Request a copy of your personal data</li>
+          <li><strong class="text-white">Rectification</strong>: Correct inaccurate data</li>
+          <li><strong class="text-white">Erasure</strong>: Delete your data (subject to legal retention requirements)</li>
+          <li><strong class="text-white">Portability</strong>: Receive your data in a machine-readable format</li>
+          <li><strong class="text-white">Objection</strong>: Object to processing based on legitimate interest</li>
+          <li><strong class="text-white">Restriction</strong>: Limit processing in certain circumstances</li>
+        </ul>
+        <p class="text-slate-300">To exercise these rights, email <a href="mailto:sea.compute.hp+compliance@gmail.com" class="text-primary hover:underline">sea.compute.hp+compliance@gmail.com</a>. We respond within 30 days.</p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Contact</h2>
-        <p class="text-gray-700 mb-4">For any privacy-related inquiries, contact our DPO at privacy@sea-compute.com.</p>
+      <!-- §8 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§8. Data Sharing</h2>
+        <p class="text-slate-300 mb-3">We share data with:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2">
+          <li><strong class="text-white">Payment processors</strong>: To process top-ups and withdrawals</li>
+          <li><strong class="text-white">Upstream providers</strong>: Only the minimum necessary to provision instances (e.g., SSH keys, region selection)</li>
+          <li><strong class="text-white">Regulators</strong>: When legally compelled by court order or regulatory directive</li>
+          <li><strong class="text-white">Sanctions screening services</strong>: For AML compliance</li>
+        </ul>
+        <p class="text-slate-300 mt-3">We do <strong class="text-white">not</strong> sell your data to third parties. We do not use your data for advertising.</p>
+      </div>
+
+      <!-- §9 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§9. International Transfers</h2>
+        <p class="text-slate-300">Our infrastructure and partners operate across multiple jurisdictions. When transferring data outside the EEA, we rely on Standard Contractual Clauses (SCCs) or adequacy decisions. You may request a copy of the safeguards in place.</p>
+      </div>
+
+      <!-- §10 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§10. Security & Breach Notification</h2>
+        <p class="text-slate-300 mb-3">We implement industry-standard security measures including encryption at rest and in transit, access controls, and regular security audits.</p>
+        <p class="text-slate-300">In the event of a data breach that is likely to result in harm to you, we will notify affected users within <strong class="text-white">72 hours</strong> of discovery, via email to the address on file.</p>
+      </div>
+
+      <!-- §11 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§11. Changes to This Policy</h2>
+        <p class="text-slate-300">We will notify users of material changes via email at least 14 days before they take effect. Continued use of the Service after the effective date constitutes acceptance of the updated policy.</p>
+      </div>
+
+      <!-- Contact -->
+      <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+        <h3 class="text-lg font-bold text-white mb-2">Data Protection Inquiries</h3>
+        <p class="text-slate-300 text-sm">Contact our compliance team at <a href="mailto:sea.compute.hp+compliance@gmail.com" class="text-primary hover:underline">sea.compute.hp+compliance@gmail.com</a></p>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 border-t border-gray-800 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
-            <span class="font-bold text-xl text-white">SEA-COMPUTE</span>
-          </div>
-          <p class="text-sm text-gray-400">Cross-border cloud computing marketplace for global small developers</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Product</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
-            <li><a href="about.html" class="hover:text-white">About</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
-            <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Contact</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li>hello@sea-compute.com</li>
-            <li>privacy@sea-compute.com</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-        <p>© 2026 SEA-COMPUTE. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+      <p>&copy; 2026 SEA-COMPUTE. Cross-border cloud computing service reseller.</p>
+      <div class="mt-4 flex justify-center gap-6">
+        <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
+        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy</a>
+        <a href="/contact.html" class="hover:text-slate-300 transition">Contact</a>
       </div>
     </div>
   </footer>
