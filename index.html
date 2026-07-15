@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEA-COMPUTE · Affordable GPU Cloud for SEA Developers</title>
-  <meta name="description" content="Prices ↓17-28% vs Vast.ai/RunPod · Native VI/ID support · 万里汇/USDT/支付宝 accepted">
+  <title>SEA-COMPUTE · Cross-border Cloud Computing Marketplace</title>
+  <meta name="description" content="Affordable GPU/CPU compute rental for global small developers. Cross-border cloud computing marketplace.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,1690 +26,232 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* GPU gradient background */
     .hero-bg {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
     }
     .hero-glow {
       background: radial-gradient(ellipse at 70% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
     }
-    /* SKU card hover */
-    .sku-card {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .sku-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
-    }
-    .sku-card:hover .sku-hover-pay {
-      display: block;
-    }
-    .sku-hover-pay {
-      display: none;
-    }
-    /* Badge pulse */
-    @keyframes pulse-green {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-    .pulse-dot {
-      animation: pulse-green 2s ease-in-out infinite;
-    }
-    /* FAQ accordion */
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 200px;
-    }
-    .faq-item.open .faq-chevron {
-      transform: rotate(180deg);
-    }
-    .faq-chevron {
-      transition: transform 0.3s ease;
-    }
-    /* Exit intent modal */
-    .exit-modal {
-      display: none;
-    }
-    .exit-modal.show {
-      display: flex;
-    }
-    /* Invite code validation */
-    .invite-status { font-size: 0.875rem; margin-top: 0.25rem; }
-    .invite-status.valid { color: #10B981; }
-    .invite-status.invalid { color: #EF4444; }
-    /* Competitive table */
-    .comp-table th, .comp-table td { padding: 0.75rem 1rem; text-align: center; }
-    .comp-table thead th { font-size: 0.875rem; font-weight: 600; }
-    .comp-table .my-col { background: rgba(37, 99, 235, 0.06); }
-    .comp-table tr:hover .my-col { background: rgba(37, 99, 235, 0.12); }
-    .comp-table .check { color: #10B981; font-weight: 700; font-size: 1.1rem; }
-    .comp-table .cross { color: #9CA3AF; }
-    .comp-table .dim-label { text-align: left; font-weight: 500; color: #374151; }
-    /* Retention cards */
-    @keyframes float-in {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .retain-card {
-      animation: float-in 0.5s ease-out both;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .retain-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.18);
-    }
-    .retain-card:nth-child(1) { animation-delay: 0s; }
-    .retain-card:nth-child(2) { animation-delay: 0.1s; }
-    .retain-card:nth-child(3) { animation-delay: 0.2s; }
-    .retain-card:nth-child(4) { animation-delay: 0.3s; }
-    /* Language dropdown (36/N) */
-    .lang-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      margin-top: 0.5rem;
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.75rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
-      min-width: 220px;
-      z-index: 100;
-      overflow: hidden;
-    }
-    .lang-dropdown.open { display: block; }
-    .lang-dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      font-size: 0.875rem;
-      color: #374151;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .lang-dropdown-item:hover { background: #f3f4f6; }
-    .lang-dropdown-item.active { background: #eff6ff; color: #2563EB; font-weight: 600; }
-    .lang-dropdown-item .flag { font-size: 1.1rem; line-height: 1; }
-    /* Coming-soon modal (36/N) */
-    .coming-modal {
-      display: none;
-    }
-    .coming-modal.show {
-      display: flex;
-    }
-    /* A13 capacity banner (v0.5 · 71/N) */
-    .a13-banner {
-      display: none;
-      background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 100%);
-      border-bottom: 1px solid #F59E0B;
-    }
-    .a13-banner.show { display: block; }
-    /* A19 hard-cap modal (v0.5 · 71/N) */
-    .a19-modal { display: none; }
-    .a19-modal.show { display: flex; }
-    /* Admin status badge (v0.5 · 76/N) */
-    .admin-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.125rem 0.5rem;
-      border-radius: 9999px;
-    }
-    .admin-badge.pending { background: #FEF3C7; color: #92400E; }
-    .admin-badge.active  { background: #D1FAE5; color: #065F46; }
-    .admin-badge.waiting { background: #DBEAFE; color: #1E40AF; }
-    /* Admin demo panel (v0.5 · dev only) */
-    .admin-demo-panel {
-      display: none;
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: #1E293B;
-      color: #E2E8F0;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      z-index: 70;
-      font-size: 0.75rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-      min-width: 220px;
-    }
-    .admin-demo-panel.show { display: block; }
-    .admin-demo-panel button {
-      display: block;
-      width: 100%;
-      text-align: left;
-      padding: 0.375rem 0.5rem;
-      margin-top: 0.25rem;
-      border-radius: 0.375rem;
-      background: #334155;
-      color: #E2E8F0;
-      border: none;
-      cursor: pointer;
-      font-size: 0.7rem;
-      transition: background 0.15s;
-    }
-    .admin-demo-panel button:hover { background: #475569; }
-    .admin-demo-panel button.active-toggle { background: #2563EB; color: white; }
-    /* Payment channel weight bar (v0.5) */
-    .weight-bar {
-      display: flex;
-      height: 0.5rem;
-      border-radius: 9999px;
-      overflow: hidden;
-      margin-top: 0.375rem;
-    }
-    .weight-bar > span { display: block; height: 100%; }
-    /* 支付宝 dual-account card (v0.5) */
-    .alipay-dual-card {
-      background: white;
-      border: 1px solid #E5E7EB;
-      border-radius: 0.75rem;
-      overflow: hidden;
-    }
-    .alipay-dual-card .alipay-tab {
-      padding: 0.5rem 1rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: all 0.15s;
-      text-align: center;
-      flex: 1;
-    }
-    .alipay-dual-card .alipay-tab.active {
-      border-bottom-color: #2563EB;
-      color: #2563EB;
-      background: #EFF6FF;
-    }
-    .alipay-dual-card .alipay-tab:not(.active) {
-      color: #6B7280;
-    }
-    .alipay-dual-card .alipay-tab:not(.active):hover {
-      background: #F9FAFB;
-    }
   </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
-
-  <!-- ========== STICKY HEADER (64px) ========== -->
-  <header class="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur border-b border-gray-100 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
         <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
           <span class="text-white font-bold text-sm">SC</span>
         </div>
-        <span class="font-bold text-lg text-gray-900">SEA-COMPUTE</span>
-      </a>
-      <!-- Nav -->
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="#sku" class="text-sm text-gray-600 hover:text-primary transition">Products</a>
-        <a href="#pricing" class="text-sm text-gray-600 hover:text-primary transition">Pricing</a>
-        <a href="#payment" class="text-sm text-gray-600 hover:text-primary transition">Payment</a>
-        <a href="#solutions" class="text-sm text-gray-600 hover:text-primary transition" onclick="showComingSoon(event, 'Solutions')">Solutions</a>
-        <a href="#getting-started" class="text-sm text-gray-600 hover:text-primary transition" onclick="showComingSoon(event, 'Getting Started')">Getting Started</a>
-        <a href="#faq" class="text-sm text-gray-600 hover:text-primary transition">FAQ</a>
-      </nav>
-      <!-- Right -->
-      <div class="flex items-center gap-4">
-        <!-- Language switch (36/N: 10 languages + flag emoji) -->
-        <div class="relative" id="langSwitcher">
-          <button id="langBtn" class="text-sm text-gray-600 hover:text-primary flex items-center gap-1.5 px-2 py-1 rounded-lg hover:bg-gray-100 transition" onclick="toggleLangDropdown()">
-            <span class="flag" id="currentFlag">🇺🇸</span>
-            <span id="currentLang">EN</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="langDropdown" class="lang-dropdown">
-            <div class="lang-dropdown-item active" data-lang="en" data-flag="🇺🇸" onclick="switchLang(this)"><span class="flag">🇺🇸</span> English</div>
-            <div class="lang-dropdown-item" data-lang="zh-CN" data-flag="🇨🇳" onclick="switchLang(this)"><span class="flag">🇨🇳</span> 中文简体</div>
-            <div class="lang-dropdown-item" data-lang="zh-TW" data-flag="🇭🇰" onclick="switchLang(this)"><span class="flag">🇭🇰</span> 中文繁體</div>
-            <div class="lang-dropdown-item" data-lang="vi" data-flag="🇻🇳" onclick="switchLang(this)"><span class="flag">🇻🇳</span> Tiếng Việt</div>
-            <div class="lang-dropdown-item" data-lang="id" data-flag="🇮🇩" onclick="switchLang(this)"><span class="flag">🇮🇩</span> Bahasa Indonesia</div>
-            <div class="lang-dropdown-item" data-lang="ms" data-flag="🇲🇾" onclick="switchLang(this)"><span class="flag">🇲🇾</span> Bahasa Melayu</div>
-            <div class="lang-dropdown-item" data-lang="th" data-flag="🇹🇭" onclick="switchLang(this)"><span class="flag">🇹🇭</span> ภาษาไทย</div>
-            <div class="lang-dropdown-item" data-lang="ja" data-flag="🇯🇵" onclick="switchLang(this)"><span class="flag">🇯🇵</span> 日本語</div>
-            <div class="lang-dropdown-item" data-lang="de" data-flag="🇩🇪" onclick="switchLang(this)"><span class="flag">🇩🇪</span> Deutsch</div>
-            <div class="lang-dropdown-item" data-lang="it" data-flag="🇮🇹" onclick="switchLang(this)"><span class="flag">🇮🇹</span> Italiano</div>
-          </div>
-        </div>
-        <a href="#login" class="text-sm text-gray-600 hover:text-primary transition hidden sm:inline">Log in</a>
-        <a href="#register" class="text-sm bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium">Sign up ★</a>
+        <span class="font-bold text-xl text-gray-900">SEA-COMPUTE</span>
       </div>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#pricing" class="text-sm font-medium text-gray-600 hover:text-primary">Pricing</a>
+        <a href="#about" class="text-sm font-medium text-gray-600 hover:text-primary">About</a>
+        <a href="#terms" class="text-sm font-medium text-gray-600 hover:text-primary">Terms</a>
+        <a href="#privacy" class="text-sm font-medium text-gray-600 hover:text-primary">Privacy</a>
+        <a href="#register" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Get Started</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ========== A13 CAPACITY BANNER (v0.5 · 71/N · non-blocking) ========== -->
-  <div id="a13Banner" class="a13-banner" role="alert">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <svg class="w-5 h-5 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
-        <div>
-          <p class="text-sm font-semibold text-amber-900">当日通道产能已满</p>
-          <p class="text-xs text-amber-700">Today's payment channel capacity is full. Small transactions (≤$3k) still process normally.</p>
-        </div>
-      </div>
-      <button onclick="dismissA13()" class="text-amber-600 hover:text-amber-800 transition p-1 rounded" aria-label="Dismiss">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- ========== HERO (100vh) ========== -->
+  <!-- Hero Section -->
   <section class="hero-bg min-h-screen flex items-center pt-16 relative overflow-hidden">
     <div class="hero-glow absolute inset-0"></div>
-    <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Left: Copy -->
-        <div>
-          <div class="inline-flex items-center gap-2 bg-blue-900/30 border border-blue-700/30 rounded-full px-4 py-1.5 mb-6">
-            <span class="w-2 h-2 bg-success rounded-full pulse-dot"></span>
-            <span class="text-blue-300 text-sm font-medium">First 100 SEA developer beta · 87 seats left</span>
-          </div>
-          <h1 class="text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
-            The most affordable<br>
-            <span class="text-primary">GPU cloud</span> for SEA developers
-          </h1>
-          <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-            Prices ↓17-28% vs Vast.ai/RunPod · Native VI/ID support · <strong class="text-white">万里汇/USDT/支付宝</strong> accepted
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="#register" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg hover:bg-blue-700 transition font-semibold text-lg" data-track="portal.landing.hero_cta_signup_click" data-hook="cta_signup_hero">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              Sign up · Get $5 free
-            </a>
-            <a href="#pricing" class="inline-flex items-center justify-center gap-2 border border-gray-500 text-gray-300 px-8 py-3.5 rounded-lg hover:border-primary hover:text-primary transition font-medium" data-track="portal.landing.hero_cta_pricing_click" data-hook="cta_pricing">
-              See pricing →
-            </a>
-          </div>
-          <p class="text-sm text-gray-400">
-            ⭐⭐⭐⭐⭐ First 100 SEA developer beta · $5 free credit · 24h boot
-          </p>
-        </div>
-        <!-- Right: Visual placeholder -->
-        <div class="hidden lg:flex items-center justify-center">
-          <div class="relative w-80 h-80">
-            <!-- GPU visual placeholder -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-900/20 rounded-3xl border border-blue-700/20 flex items-center justify-center">
-              <div class="text-center">
-                <div class="text-6xl mb-4">🖥️</div>
-                <div class="text-blue-300 text-sm font-medium">H100 · A100 · RTX 4090</div>
-                <div class="text-blue-400/60 text-xs mt-1">GPU 3D visual (Lottie · D3)</div>
-              </div>
-            </div>
-            <!-- Floating badges -->
-            <div class="absolute -top-4 -right-4 bg-success/10 border border-success/30 rounded-lg px-3 py-1.5 text-success text-sm font-medium">
-              $0.48/hr ↓28%
-            </div>
-            <div class="absolute -bottom-4 -left-4 bg-primary/10 border border-primary/30 rounded-lg px-3 py-1.5 text-blue-300 text-sm font-medium">
-              80GB HBM3
-            </div>
-          </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
+          Cross-border Cloud Computing Marketplace
+          <span class="text-primary">for Global Small Developers</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Affordable GPU/CPU compute rental · Monthly billing · No freezing computing power · No locking balance · No freezing withdrawal
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#register" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition">
+            Start Computing →
+          </a>
+          <a href="#pricing" class="inline-flex items-center justify-center gap-2 border border-gray-500 text-gray-300 px-8 py-3.5 rounded-lg font-semibold hover:bg-white/5 transition">
+            View Pricing
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== TRUST BAR ========== -->
-  <section class="bg-gray-50 border-y border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 py-6">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-        <div class="flex flex-col items-center gap-1">
-          <span class="text-2xl">🔧</span>
-          <span class="text-xs text-gray-600 font-medium">Vast.ai Upstream</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <span class="text-2xl">🛡️</span>
-          <span class="text-xs text-gray-600 font-medium">Lambda SOC2</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <span class="text-2xl">🌏</span>
-          <span class="text-xs text-gray-600 font-medium">SG Data Residency</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <span class="text-2xl">⚡</span>
-          <span class="text-xs text-gray-600 font-medium">Cloudflare Edge</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <span class="text-2xl">📞</span>
-          <span class="text-xs text-gray-600 font-medium">24h VI/ID Support</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <span class="text-2xl">💰</span>
-          <span class="text-xs text-gray-600 font-medium">万里汇/USDT/支付宝 · No card needed</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 6 SKU CARDS ========== -->
+  <!-- Pricing Section -->
   <section id="pricing" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-3">⚡ First Month · 6 SKUs · In Stock</h2>
-        <p class="text-gray-500">Best-effort delivery · No SLA · No discount · No refund (Red Line Policy)</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="sku-cards">
-
-        <!-- SKU 1: P4090-BUDGET -->
-        <div class="sku-card relative bg-white border border-gray-200 rounded-2xl p-6 flex flex-col" data-track-view="portal.landing.sku_card_view" data-sku="P4090-BUDGET">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">🎮</span>
-            <div>
-              <div class="font-bold text-gray-900">RTX 4090</div>
-              <div class="text-xs text-gray-500 font-medium">BUDGET</div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-3xl font-extrabold text-gray-900">$0.48<span class="text-lg font-normal text-gray-500">/hr</span></div>
-            <div class="inline-flex items-center bg-success/10 text-success text-xs font-semibold px-2 py-0.5 rounded-full mt-1">↓28% vs Vast/RunPod</div>
-          </div>
-          <ul class="space-y-2 text-sm text-gray-600 mb-4 flex-1">
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 24GB GDDR6X VRAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 8 vCPU · 32GB RAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 100GB SSD Storage</li>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-3 text-center">⚡ Monthly Billing · Transparent Pricing</h2>
+      <p class="text-gray-600 text-center mb-12">Pay only for what you use · No hidden fees · Cancel anytime</p>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">GPU Starter</h3>
+          <div class="text-3xl font-bold text-primary mb-4">$0.15<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ NVIDIA T4 / RTX 3060</li>
+            <li>✓ 16GB VRAM</li>
+            <li>✓ Monthly billing</li>
+            <li>✓ 24/7 Support</li>
           </ul>
-          <div class="border-t border-gray-100 pt-3 mb-4 text-xs text-gray-500">
-            <div>Upstream: <span class="font-medium text-gray-700">Vast.ai P2P</span></div>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="w-1.5 h-1.5 bg-success rounded-full pulse-dot"></span>
-              <span>Spot · 47 cards available</span>
-            </div>
-          </div>
-          <a href="#register?sku=P4090-BUDGET" class="block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm" data-track="portal.landing.sku_card_cta_click" data-hook="cta_sku_P4090-BUDGET">
-            Try now · $5 free
-          </a>
-          <a href="#" class="block text-center text-primary text-sm mt-2 hover:underline">View details →</a>
-          <!-- Hover: payment hint -->
-          <div class="sku-hover-pay mt-3 text-center text-xs text-gray-400 border-t border-dashed border-gray-200 pt-2">
-            💳 Pay with 万里汇 / USDT / 支付宝
-          </div>
-          <!-- Red line notice -->
-          <div class="mt-2 text-xs text-warning bg-warning/5 rounded px-2 py-1">
-            ⚠️ P2P spot · No SLA · May be preempted · Use checkpoint resume
-          </div>
+          <a href="#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
         </div>
-
-        <!-- SKU 2: P4090-STANDARD -->
-        <div class="sku-card relative bg-white border border-gray-200 rounded-2xl p-6 flex flex-col" data-track-view="portal.landing.sku_card_view" data-sku="P4090-STANDARD">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">🎯</span>
-            <div>
-              <div class="font-bold text-gray-900">RTX 4090</div>
-              <div class="text-xs text-gray-500 font-medium">STANDARD</div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-3xl font-extrabold text-gray-900">$0.88<span class="text-lg font-normal text-gray-500">/hr</span></div>
-            <div class="inline-flex items-center bg-success/10 text-success text-xs font-semibold px-2 py-0.5 rounded-full mt-1">↓20% vs RunPod</div>
-          </div>
-          <ul class="space-y-2 text-sm text-gray-600 mb-4 flex-1">
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 24GB GDDR6X VRAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 16 vCPU · 64GB RAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 256GB NVMe Storage</li>
+        
+        <div class="bg-white border-2 border-primary rounded-xl p-6 relative hover:shadow-lg transition">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">POPULAR</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">GPU Pro</h3>
+          <div class="text-3xl font-bold text-primary mb-4">$0.45<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ NVIDIA A100 / V100</li>
+            <li>✓ 40GB VRAM</li>
+            <li>✓ Monthly billing</li>
+            <li>✓ Priority Support</li>
           </ul>
-          <div class="border-t border-gray-100 pt-3 mb-4 text-xs text-gray-500">
-            <div>Upstream: <span class="font-medium text-gray-700">RunPod Community</span></div>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="w-1.5 h-1.5 bg-success rounded-full pulse-dot"></span>
-              <span>On-Demand · Stable availability</span>
-            </div>
-          </div>
-          <a href="#register?sku=P4090-STANDARD" class="block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm" data-track="portal.landing.sku_card_cta_click" data-hook="cta_sku_P4090-STANDARD">
-            Try now · $5 free
-          </a>
-          <a href="#" class="block text-center text-primary text-sm mt-2 hover:underline">View details →</a>
-          <div class="sku-hover-pay mt-3 text-center text-xs text-gray-400 border-t border-dashed border-gray-200 pt-2">
-            💳 Pay with 万里汇 / USDT / 支付宝
-          </div>
-          <div class="mt-2 text-xs text-warning bg-warning/5 rounded px-2 py-1">
-            ⚠️ No Portal SLA · RunPod uptime guaranteed by RunPod
-          </div>
+          <a href="#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
         </div>
-
-        <!-- SKU 3: PA100-BUDGET -->
-        <div class="sku-card relative bg-white border border-gray-200 rounded-2xl p-6 flex flex-col" data-track-view="portal.landing.sku_card_view" data-sku="PA100-BUDGET">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">💡</span>
-            <div>
-              <div class="font-bold text-gray-900">A100 80GB</div>
-              <div class="text-xs text-gray-500 font-medium">BUDGET</div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-3xl font-extrabold text-gray-900">$1.72<span class="text-lg font-normal text-gray-500">/hr</span></div>
-            <div class="inline-flex items-center bg-success/10 text-success text-xs font-semibold px-2 py-0.5 rounded-full mt-1">↓13% vs Lambda</div>
-          </div>
-          <ul class="space-y-2 text-sm text-gray-600 mb-4 flex-1">
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 80GB HBM2e VRAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 32 vCPU · 256GB RAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 512GB NVMe Storage</li>
+        
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">CPU Standard</h3>
+          <div class="text-3xl font-bold text-primary mb-4">$0.05<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ 8 vCPU / 32GB RAM</li>
+            <li>✓ 500GB SSD</li>
+            <li>✓ Monthly billing</li>
+            <li>✓ 24/7 Support</li>
           </ul>
-          <div class="border-t border-gray-100 pt-3 mb-4 text-xs text-gray-500">
-            <div>Upstream: <span class="font-medium text-gray-700">Vast.ai A100 P2P</span></div>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="w-1.5 h-1.5 bg-warning rounded-full pulse-dot"></span>
-              <span>Spot · Limited supply · May preempt</span>
-            </div>
-          </div>
-          <a href="#register?sku=PA100-BUDGET" class="block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm" data-track="portal.landing.sku_card_cta_click" data-hook="cta_sku_PA100-BUDGET">
-            Try now · $5 free
-          </a>
-          <a href="#" class="block text-center text-primary text-sm mt-2 hover:underline">View details →</a>
-          <div class="sku-hover-pay mt-3 text-center text-xs text-gray-400 border-t border-dashed border-gray-200 pt-2">
-            💳 Pay with 万里汇 / USDT / 支付宝
-          </div>
-          <div class="mt-2 text-xs text-warning bg-warning/5 rounded px-2 py-1">
-            ⚠️ P2P spot · No SLA · A100 high demand · Preemption possible
-          </div>
-        </div>
-
-        <!-- SKU 4: PA100-STANDARD -->
-        <div class="sku-card relative bg-white border border-gray-200 rounded-2xl p-6 flex flex-col" data-track-view="portal.landing.sku_card_view" data-sku="PA100-STANDARD">
-          <div class="absolute -top-3 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">POPULAR</div>
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">🚀</span>
-            <div>
-              <div class="font-bold text-gray-900">A100 80GB</div>
-              <div class="text-xs text-gray-500 font-medium">STANDARD</div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-3xl font-extrabold text-gray-900">$1.59<span class="text-lg font-normal text-gray-500">/hr</span></div>
-            <div class="inline-flex items-center bg-success/10 text-success text-xs font-semibold px-2 py-0.5 rounded-full mt-1">↓19% vs Lambda</div>
-          </div>
-          <ul class="space-y-2 text-sm text-gray-600 mb-4 flex-1">
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 80GB HBM2e VRAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 30 vCPU · 200GB RAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 512GB NVMe Storage</li>
-          </ul>
-          <div class="border-t border-gray-100 pt-3 mb-4 text-xs text-gray-500">
-            <div>Upstream: <span class="font-medium text-gray-700">Lambda 1x On-Demand</span></div>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="w-1.5 h-1.5 bg-success rounded-full pulse-dot"></span>
-              <span>On-Demand · Stable 24×7</span>
-            </div>
-          </div>
-          <a href="#register?sku=PA100-STANDARD" class="block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm" data-track="portal.landing.sku_card_cta_click" data-hook="cta_sku_PA100-STANDARD">
-            Try now · $5 free
-          </a>
-          <a href="#" class="block text-center text-primary text-sm mt-2 hover:underline">View details →</a>
-          <div class="sku-hover-pay mt-3 text-center text-xs text-gray-400 border-t border-dashed border-gray-200 pt-2">
-            💳 Pay with 万里汇 / USDT / 支付宝
-          </div>
-          <div class="mt-2 text-xs text-warning bg-warning/5 rounded px-2 py-1">
-            ⚠️ No Portal SLA · Lambda stability guaranteed by Lambda
-          </div>
-        </div>
-
-        <!-- SKU 3: PH100-BUDGET -->
-        <div class="sku-card relative bg-white border border-gray-200 rounded-2xl p-6 flex flex-col" data-track-view="portal.landing.sku_card_view" data-sku="PH100-BUDGET">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">💎</span>
-            <div>
-              <div class="font-bold text-gray-900">H100 80GB</div>
-              <div class="text-xs text-gray-500 font-medium">BUDGET</div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-3xl font-extrabold text-gray-900">$2.22<span class="text-lg font-normal text-gray-500">/hr</span></div>
-            <div class="inline-flex items-center bg-success/10 text-success text-xs font-semibold px-2 py-0.5 rounded-full mt-1">↓21% vs Vast</div>
-          </div>
-          <ul class="space-y-2 text-sm text-gray-600 mb-4 flex-1">
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 80GB HBM3 VRAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 32 vCPU · 256GB RAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 1TB NVMe Storage</li>
-          </ul>
-          <div class="border-t border-gray-100 pt-3 mb-4 text-xs text-gray-500">
-            <div>Upstream: <span class="font-medium text-gray-700">Vast.ai H100 P2P</span></div>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="w-1.5 h-1.5 bg-warning rounded-full pulse-dot"></span>
-              <span>Spot · High demand · May preempt</span>
-            </div>
-          </div>
-          <a href="#register?sku=PH100-BUDGET" class="block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm" data-track="portal.landing.sku_card_cta_click" data-hook="cta_sku_PH100-BUDGET">
-            Try now · $5 free
-          </a>
-          <a href="#" class="block text-center text-primary text-sm mt-2 hover:underline">View details →</a>
-          <div class="sku-hover-pay mt-3 text-center text-xs text-gray-400 border-t border-dashed border-gray-200 pt-2">
-            💳 Pay with 万里汇 / USDT / 支付宝
-          </div>
-          <div class="mt-2 text-xs text-warning bg-warning/5 rounded px-2 py-1">
-            ⚠️ P2P spot · No SLA · H100 high demand · Preemption likely
-          </div>
-        </div>
-
-        <!-- SKU 4: PH100-STANDARD -->
-        <div class="sku-card relative bg-white border border-gray-200 rounded-2xl p-6 flex flex-col" data-track-view="portal.landing.sku_card_view" data-sku="PH100-STANDARD">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-2xl">⭐</span>
-            <div>
-              <div class="font-bold text-gray-900">H100 80GB</div>
-              <div class="text-xs text-gray-500 font-medium">STANDARD</div>
-            </div>
-          </div>
-          <div class="mb-4">
-            <div class="text-3xl font-extrabold text-gray-900">$3.49<span class="text-lg font-normal text-gray-500">/hr</span></div>
-            <div class="inline-flex items-center bg-success/10 text-success text-xs font-semibold px-2 py-0.5 rounded-full mt-1">↓17% vs Lambda</div>
-          </div>
-          <ul class="space-y-2 text-sm text-gray-600 mb-4 flex-1">
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 80GB HBM3 VRAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 30 vCPU · 480GB RAM</li>
-            <li class="flex items-center gap-2"><span class="text-gray-400">·</span> 512GB NVMe Storage</li>
-          </ul>
-          <div class="border-t border-gray-100 pt-3 mb-4 text-xs text-gray-500">
-            <div>Upstream: <span class="font-medium text-gray-700">Lambda H100 On-Demand</span></div>
-            <div class="flex items-center gap-1 mt-1">
-              <span class="w-1.5 h-1.5 bg-success rounded-full pulse-dot"></span>
-              <span>On-Demand · Stable 24×7</span>
-            </div>
-          </div>
-          <a href="#register?sku=PH100-STANDARD" class="block text-center bg-primary text-white py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm" data-track="portal.landing.sku_card_cta_click" data-hook="cta_sku_PH100-STANDARD">
-            Try now · $5 free
-          </a>
-          <a href="#" class="block text-center text-primary text-sm mt-2 hover:underline">View details →</a>
-          <div class="sku-hover-pay mt-3 text-center text-xs text-gray-400 border-t border-dashed border-gray-200 pt-2">
-            💳 Pay with 万里汇 / USDT / 支付宝
-          </div>
-          <div class="mt-2 text-xs text-warning bg-warning/5 rounded px-2 py-1">
-            ⚠️ No Portal SLA · Lambda stability guaranteed by Lambda
-          </div>
-        </div>
-
-      </div>
-
-      <div class="text-center mt-8">
-        <a href="#" class="text-primary font-medium hover:underline">View full 6-SKU catalog →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 3 DIFFERENTIATORS ========== -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center p-8">
-          <div class="text-4xl mb-4">💰</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Cheaper</h3>
-          <p class="text-gray-500 text-sm">vs Vast.ai/RunPod ↓17-28%<br>Transparent upstream pricing · No hidden fees</p>
-        </div>
-        <div class="text-center p-8">
-          <div class="text-4xl mb-4">🌏</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">More Local</h3>
-          <p class="text-gray-500 text-sm">Native Vietnamese & Indonesian support<br>24h customer service · SG data residency</p>
-        </div>
-        <div class="text-center p-8">
-          <div class="text-4xl mb-4">💳</div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Easier Payment</h3>
-          <p class="text-gray-500 text-sm"><strong>万里汇 / USDT / 支付宝</strong> — no credit card needed<br>Perfect for SEA developers without Visa/Mastercard</p>
+          <a href="#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== COMPETITIVE COMPARISON (34/N) ========== -->
-  <section id="compare" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-gray-900 mb-3">🔍 How We Compare</h2>
-        <p class="text-gray-500">SEA-COMPUTE vs major GPU cloud providers · 7 key dimensions</p>
-      </div>
-
-      <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-        <table class="comp-table w-full text-sm">
-          <thead class="bg-gray-50 border-b border-gray-200">
-            <tr>
-              <th class="dim-label !pl-6 min-w-[140px]">Dimension</th>
-              <th class="my-col !text-primary">
-                <div class="flex flex-col items-center gap-1">
-                  <span class="text-base">SEA-COMPUTE</span>
-                  <span class="text-xs font-normal text-gray-400">Us</span>
-                </div>
-              </th>
-              <th class="text-gray-600">Vast.ai</th>
-              <th class="text-gray-600">RunPod</th>
-              <th class="text-gray-600">Lambda</th>
-              <th class="text-gray-600">TensorDock</th>
-              <th class="text-gray-600">CoreWeave</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100">
-            <!-- Row 1: Pricing -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">💰 Pricing</td>
-              <td class="my-col check">✓ ↓17-28%</td>
-              <td class="cross">Market rate</td>
-              <td class="cross">Market rate</td>
-              <td class="cross">Premium</td>
-              <td class="cross">Market rate</td>
-              <td class="cross">Enterprise</td>
-            </tr>
-            <!-- Row 2: Compliance -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">🛡️ SEA Compliance</td>
-              <td class="my-col check">✓ SG residency<br><span class="text-xs font-normal text-gray-400">KYC relaxed</span></td>
-              <td class="cross">US-only KYC</td>
-              <td class="cross">US-only KYC</td>
-              <td class="cross">US/EU focus</td>
-              <td class="cross">No SG node</td>
-              <td class="cross">US-only</td>
-            </tr>
-            <!-- Row 3: Settlement channels -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">💳 Payment Channels</td>
-              <td class="my-col check">✓ 万里汇 + USDT<br>+ 支付宝</td>
-              <td class="cross">Card only</td>
-              <td class="cross">Card + Crypto</td>
-              <td class="cross">Card only</td>
-              <td class="cross">Card only</td>
-              <td class="cross">Wire + Card</td>
-            </tr>
-            <!-- Row 4: Support language -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">🗣️ Support Language</td>
-              <td class="my-col check">✓ EN / VI / ID</td>
-              <td class="cross">EN only</td>
-              <td class="cross">EN only</td>
-              <td class="cross">EN only</td>
-              <td class="cross">EN only</td>
-              <td class="cross">EN only</td>
-            </tr>
-            <!-- Row 5: SEA nodes -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">🌏 SEA Node Coverage</td>
-              <td class="my-col check">✓ SG · VN · ID<br><span class="text-xs font-normal text-gray-400">3 regions</span></td>
-              <td class="cross">P2P global</td>
-              <td class="cross">US · EU</td>
-              <td class="cross">US only</td>
-              <td class="cross">US · EU</td>
-              <td class="cross">US · EU</td>
-            </tr>
-            <!-- Row 6: Hidden fees -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">🔎 Hidden Fees</td>
-              <td class="my-col check">✓ Zero<br><span class="text-xs font-normal text-gray-400">Transparent</span></td>
-              <td class="cross">+15% buyer fee</td>
-              <td class="cross">+10% platform fee</td>
-              <td class="cross">Ingress/egress</td>
-              <td class="cross">Storage markup</td>
-              <td class="cross">Min commit</td>
-            </tr>
-            <!-- Row 7: Refund policy -->
-            <tr class="hover:bg-gray-50/50">
-              <td class="dim-label !pl-6">🔒 Refund Red Line</td>
-              <td class="my-col check">✓ Clear policy<br><span class="text-xs font-normal text-gray-400">No surprise</span></td>
-              <td class="cross">Case-by-case</td>
-              <td class="cross">Case-by-case</td>
-              <td class="cross">30-day lock</td>
-              <td class="cross">No refund</td>
-              <td class="cross">Contract lock</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
-        <span class="w-3 h-3 rounded bg-primary/10 border border-primary/30 inline-block"></span>
-        <span>Highlighted column = SEA-COMPUTE advantages</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PAYMENT MODULE v3.0 (v0.5 · v1.4 locked by CFO) ========== -->
-  <section id="payment" class="py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-2xl p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-2 text-center">💳 Payment Methods</h2>
-        <p class="text-gray-500 text-center mb-4">First month · Zero barrier · No credit card required</p>
-
-        <!-- v1.4 通道权重条 (v0.5 · CFO locked: 57/35/8/0/0) -->
-        <div class="mb-6">
-          <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
-            <span>通道权重分配 v1.4</span>
-            <span class="admin-badge waiting">CFO Locked</span>
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">About SEA-COMPUTE</h2>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg text-gray-700 mb-6">
+          SEA-COMPUTE is a cross-border cloud computing marketplace connecting global small developers with affordable GPU/CPU compute resources.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="text-3xl mb-3">🌍</div>
+            <h3 class="font-bold text-gray-900 mb-2">Global Access</h3>
+            <p class="text-sm text-gray-600">Serve developers worldwide with localized payment and support</p>
           </div>
-          <div class="weight-bar">
-            <span style="width:57%;background:#2563EB" title="万里汇 57%"></span>
-            <span style="width:35%;background:#10B981" title="USDT 35%"></span>
-            <span style="width:8%;background:#F59E0B" title="支付宝 8%"></span>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="text-3xl mb-3">💰</div>
+            <h3 class="font-bold text-gray-900 mb-2">Monthly Billing</h3>
+            <p class="text-sm text-gray-600">Pay only for what you use · No long-term contracts</p>
           </div>
-          <div class="flex items-center gap-4 mt-1.5 text-xs text-gray-500">
-            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-600 inline-block"></span>万里汇 57%</span>
-            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>USDT 35%</span>
-            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>支付宝 8%</span>
-            <span class="flex items-center gap-1 opacity-40"><span class="w-2 h-2 rounded-full bg-gray-400 inline-block"></span>Wise 0%</span>
-            <span class="flex items-center gap-1 opacity-40"><span class="w-2 h-2 rounded-full bg-gray-300 inline-block"></span>PayPal 0%</span>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="text-3xl mb-3">🔒</div>
+            <h3 class="font-bold text-gray-900 mb-2">Three No's Promise</h3>
+            <p class="text-sm text-gray-600">No freezing computing power · No locking balance · No freezing withdrawal</p>
           </div>
-        </div>
-
-        <!-- 5 通道卡片 (v1.4: Wise/PayPal 灰显) -->
-        <div class="grid md:grid-cols-5 gap-4 mb-6">
-          <!-- 万里汇 B2B (57% 主力) -->
-          <div class="bg-white rounded-xl border-2 border-primary p-5 text-center relative">
-            <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-0.5 rounded-full">⭐ 57%</div>
-            <div class="text-3xl mb-2">🏦</div>
-            <div class="font-bold text-gray-900 mb-1">万里汇 B2B</div>
-            <div class="text-xs text-gray-500">WorldFirst · 外贸B2B<br>VND/IDR/USD 汇款<br><strong class="text-amber-700">0.7% 封顶</strong> · 1-2天到账</div>
-            <span class="admin-badge active mt-2">主力通道</span>
-          </div>
-          <!-- USDT 多链 (35%) -->
-          <div class="bg-white rounded-xl border border-gray-200 p-5 text-center relative">
-            <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-success text-white text-xs font-bold px-3 py-0.5 rounded-full">35%</div>
-            <div class="text-3xl mb-2">🪙</div>
-            <div class="font-bold text-gray-900 mb-1">USDT 多链</div>
-            <div class="text-xs text-gray-500">TRC-20 · ERC-20 · BEP-20<br>USDC 支持 · Gas ~$1<br>24h 链上确认</div>
-            <span class="admin-badge active mt-2">推荐</span>
-          </div>
-          <!-- 支付宝双户 (8% · v0.5 双户范式) -->
-          <div class="bg-white rounded-xl border border-gray-200 p-5 text-center relative">
-            <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-xs font-bold px-3 py-0.5 rounded-full">8%</div>
-            <div class="text-3xl mb-2">📱</div>
-            <div class="font-bold text-gray-900 mb-1">支付宝</div>
-            <div class="text-xs text-gray-500 mb-2">境内客户 · 透明路由<br>A/B 双户 · 智能分流</div>
-            <span class="admin-badge pending mt-1">双户运行</span>
-          </div>
-          <!-- Wise (0% 灰显) -->
-          <div class="bg-gray-50 rounded-xl border border-dashed border-gray-300 p-5 text-center opacity-50">
-            <div class="text-3xl mb-2">🌐</div>
-            <div class="font-bold text-gray-400 mb-1">Wise</div>
-            <div class="text-xs text-gray-400">0% · 暂停<br>保号运行中</div>
-          </div>
-          <!-- PayPal (0% 灰显) -->
-          <div class="bg-gray-50 rounded-xl border border-dashed border-gray-300 p-5 text-center opacity-50">
-            <div class="text-2xl mb-1">🅿️</div>
-            <div class="font-bold text-gray-400 text-sm">PayPal</div>
-            <div class="text-xs text-gray-400">0% · D+30 激活</div>
-          </div>
-        </div>
-
-        <!-- 支付宝双户详情卡 (v0.5 · 54/N 桥接联动) -->
-        <div class="bg-white rounded-xl border border-amber-200 p-5 mb-6" id="alipay-dual-box">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">📱</span>
-              <span class="font-bold text-gray-900">支付宝 · 双户透明路由</span>
-            </div>
-            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-medium">A/B 智能分流</span>
-          </div>
-          <div class="flex border-b border-gray-200 mb-3">
-            <div class="alipay-tab active" id="alipayTabA" onclick="switchAlipayTab('A')">
-              🅰️ A户 · 客户直付
-            </div>
-            <div class="alipay-tab" id="alipayTabB" onclick="switchAlipayTab('B')">
-              🅱️ B户 · 万里汇落地
-            </div>
-          </div>
-          <!-- A户面板 -->
-          <div id="alipayPanelA" class="space-y-2">
-            <div class="flex items-center gap-2 text-sm">
-              <span class="admin-badge active">活跃</span>
-              <span class="text-gray-600">客户直接扫码/转账付款</span>
-            </div>
-            <div class="bg-gray-50 rounded-lg p-3 text-xs text-gray-600 space-y-1">
-              <p>📌 适用场景：境内客户小额直付</p>
-              <p>💰 单笔限额：≤ ¥5,000</p>
-              <p>📝 备注要求：填入 Order ID</p>
-              <p>🔄 路由规则：系统自动识别，客户无需选择</p>
-            </div>
-          </div>
-          <!-- B户面板 (默认隐藏) -->
-          <div id="alipayPanelB" class="space-y-2 hidden">
-            <div class="flex items-center gap-2 text-sm">
-              <span class="admin-badge active">活跃</span>
-              <span class="text-gray-600">万里汇提现落地口</span>
-            </div>
-            <div class="bg-blue-50 rounded-lg p-3 text-xs text-gray-600 space-y-1">
-              <p>📌 适用场景：万里汇 B2B 提现到账</p>
-              <p>✅ 已完成实名 + 绑卡</p>
-              <p>💰 无单笔限额（受万里汇提现额度约束）</p>
-              <p>🔄 路由规则：万里汇 → B户 → 对公账户</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- USDT 钱包地址展示 · 脱敏 + 一键复制 + 二次确认展开 -->
-        <div class="bg-white rounded-xl border border-gray-200 p-5 mb-6" id="usdt-payment-box">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">🪙</span>
-              <span class="font-bold text-gray-900">USDT 付款地址（TRC-20）</span>
-            </div>
-            <span class="text-xs bg-success/10 text-success px-2 py-0.5 rounded-full font-medium">✅ 已验证</span>
-          </div>
-          <div class="flex items-center gap-3 bg-gray-50 rounded-lg p-3 mb-3">
-            <code class="text-sm text-gray-700 font-mono flex-1 select-all" id="usdt-address-display">TL****...****Mkq8</code>
-            <button onclick="copyUsdtAddress()" class="inline-flex items-center gap-1 bg-primary text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-blue-700 transition" id="copy-btn" data-hook="payment_usdt_copy">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              一键复制
-            </button>
-          </div>
-          <div class="text-xs text-gray-400 mb-3">
-            ⚠️ 仅支持 TRC-20 (Tron) 网络 · 转错链资产不可找回 · 支持 USDT / USDC
-          </div>
-          <!-- 二次确认展开区 -->
-          <details class="border border-gray-200 rounded-lg">
-            <summary class="cursor-pointer px-4 py-2 text-sm font-medium text-primary hover:bg-blue-50 rounded-lg">
-              📋 展开完整地址 · 付款前必读
-            </summary>
-            <div class="px-4 py-3 border-t border-gray-100">
-              <div class="flex items-center gap-3 bg-yellow-50 rounded-lg p-3 mb-3">
-                <code class="text-xs text-gray-800 font-mono flex-1 break-all select-all" id="usdt-address-full">TL****...****Mkq8</code>
-                <button onclick="copyUsdtAddressFull()" class="inline-flex items-center gap-1 bg-primary text-white px-2 py-1 rounded text-xs font-medium hover:bg-blue-700 transition" data-hook="payment_usdt_copy_full">
-                  复制
-                </button>
-              </div>
-              <div class="text-xs text-gray-600 space-y-1">
-                <p>1️⃣ 确认钱包网络为 <strong>TRC-20 (Tron)</strong></p>
-                <p>2️⃣ 转账金额 = 订单金额（USD）</p>
-                <p>3️⃣ 转账备注填入您的 <strong>Order ID</strong>（KYC 后生成）</p>
-                <p>4️⃣ 转账完成后截图上传至订单页面</p>
-                <p class="text-warning font-medium">⚠️ 转错链/错地址 · 资产不可找回 · 请反复核对</p>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div class="border-t border-blue-100 pt-4 text-center">
-          <p class="text-sm text-gray-500">
-            🔒 所有支付均受 KYC 保护 · <span class="font-medium text-gray-700">Coming D22+:</span> Stripe · PingPong (HK entity)
-          </p>
-          <p class="text-xs text-gray-400 mt-1">
-            ℹ️ 首月订单人工履约 · 24h 客服响应 · 5 万美元便利化额度内 · 超限切 HK 公户
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== BETA SEATS COUNTDOWN ========== -->
-  <section class="py-12 bg-primary">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold text-white mb-2">🎁 Beta Seats</h2>
-      <div class="flex items-center justify-center gap-4 my-4">
-        <div class="bg-white/10 rounded-xl px-6 py-4">
-          <div class="text-4xl font-extrabold text-white" id="seatsRemaining">87</div>
-          <div class="text-blue-200 text-sm">/ 100 seats left</div>
-        </div>
+  <!-- Terms Section -->
+  <section id="terms" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Terms of Service</h2>
+      <div class="prose prose-gray max-w-none">
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">§1 Service Commitment</h3>
+        <p class="text-gray-700 mb-4">SEA-COMPUTE guarantees the following service standards:</p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li><strong>No freezing computing power</strong> - Your allocated compute resources remain available throughout your billing period</li>
+          <li><strong>No locking balance</strong> - Your account balance is always accessible for withdrawal</li>
+          <li><strong>No freezing withdrawal</strong> - Withdrawal requests are processed within 24 hours</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">§2 Billing & Payment</h3>
+        <p class="text-gray-700 mb-4">We offer transparent monthly billing with no hidden fees. You are billed based on actual usage at the end of each month. Payment methods include WorldFirst, PayPal, and bank transfer.</p>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">§3 Service Availability</h3>
+        <p class="text-gray-700 mb-4">We maintain 99.5% uptime SLA. Scheduled maintenance windows are announced 48 hours in advance.</p>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">§4 Acceptable Use</h3>
+        <p class="text-gray-700 mb-4">Users must comply with all applicable laws and regulations. Prohibited activities include mining cryptocurrency without authorization, DDoS attacks, and distribution of malicious software.</p>
       </div>
-      <p class="text-blue-100 text-sm mb-4">
-        Each seat includes <strong class="text-white">$5 trial credit</strong> · First 10 orders waive transfer fees · Priority 24h KYC
-      </p>
-      <a href="#register" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition" data-hook="cta_claim_seat">
-        Claim your seat →
+    </div>
+  </section>
+
+  <!-- Privacy Section -->
+  <section id="privacy" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Privacy Policy</h2>
+      <div class="prose prose-gray max-w-none">
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Data Controller</h3>
+        <p class="text-gray-700 mb-4">SEA-COMPUTE is the data controller for personal information collected through our platform. Contact our Data Protection Officer at privacy@sea-compute.com.</p>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Subject Rights</h3>
+        <p class="text-gray-700 mb-4">Under GDPR, you have the right to access, rectify, erase, restrict processing, data portability, and object to processing of your personal data. Submit requests to privacy@sea-compute.com.</p>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Data Retention</h3>
+        <p class="text-gray-700 mb-4">We retain personal data only as long as necessary to provide our services and comply with legal obligations. Account data is retained for 2 years after account closure.</p>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Target Market Restrictions</h3>
+        <p class="text-gray-700 mb-4">SEA-COMPUTE does not provide services to users in US-sanctioned countries including Russia, Iran, DPRK (North Korea), Cuba, Syria, and other restricted regions. We comply with all applicable export control and sanctions regulations.</p>
+
+        <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">DPO Contact</h3>
+        <p class="text-gray-700 mb-4">Data Protection Officer: privacy@sea-compute.com · Address: 123 Computing Street, Singapore</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Register Section -->
+  <section id="register" class="py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Start?</h2>
+      <p class="text-lg text-gray-600 mb-8">Join thousands of developers building with SEA-COMPUTE</p>
+      <a href="mailto:hello@sea-compute.com" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition">
+        Contact Sales →
       </a>
     </div>
   </section>
 
-  <!-- ========== FAQ ========== -->
-  <section id="faq" class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-
-      <div class="space-y-3" id="faq-list">
-        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
-          <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition" onclick="toggleFaq(this)">
-            <span class="font-medium text-gray-900">Q1: Why is there no SLA commitment in the first month?</span>
-            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer px-5 pb-5">
-            <p class="text-sm text-gray-600">SEA-COMPUTE operates as a lightweight asset middleman during the beta phase. We aggregate upstream capacity (Vast.ai, Lambda, RunPod) and pass the cost savings directly to you. Since we don't control the underlying infrastructure, we cannot offer SLA guarantees in the first month. This is a red-line policy — no exceptions.</p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
-          <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition" onclick="toggleFaq(this)">
-            <span class="font-medium text-gray-900">Q2: Why is there no refund policy?</span>
-            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer px-5 pb-5">
-            <p class="text-sm text-gray-600">GPU compute is a consumable resource — once allocated, the cost is incurred. As a beta platform with zero-margin pricing, we cannot absorb refund costs. We encourage all users to start with the $5 free trial credit to test before committing larger amounts.</p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
-          <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition" onclick="toggleFaq(this)">
-            <span class="font-medium text-gray-900">Q3: Why is there no discount or negotiation?</span>
-            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer px-5 pb-5">
-            <p class="text-sm text-gray-600">Our prices are already 17-28% below upstream providers. We maintain a zero-discount policy to ensure fairness across all beta users. The only exception is the one-time $5 trial credit for beta seats and invite code bonuses — these are acquisition incentives, not price reductions.</p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
-          <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition" onclick="toggleFaq(this)">
-            <span class="font-medium text-gray-900">Q4: How long does KYC take?</span>
-            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer px-5 pb-5">
-            <p class="text-sm text-gray-600">First month KYC is simplified (email + phone only). Beta seat holders get priority 24h processing. Full KYC will be required before placing orders after the beta phase.</p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
-          <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition" onclick="toggleFaq(this)">
-            <span class="font-medium text-gray-900">Q5: Where is my data stored?</span>
-            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer px-5 pb-5">
-            <p class="text-sm text-gray-600">Your GPU instances run on upstream providers (Vast.ai / Lambda) in Singapore or other Asia-Pacific regions. STANDARD tier SKUs offer Asia data residency. BUDGET tier SKUs may route through P2P nodes — check the SKU card for details.</p>
-          </div>
-        </div>
-
-        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
-          <button class="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition" onclick="toggleFaq(this)">
-            <span class="font-medium text-gray-900">Q6: How are first-month payment issues handled?</span>
-            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer px-5 pb-5">
-            <p class="text-sm text-gray-600">During the beta phase, payments are processed manually via 万里汇/USDT/支付宝. After you transfer, upload the receipt screenshot and our team will confirm within 24h. Starting D22, we'll switch to Stripe + PingPong for automated payment processing.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== COLD EMAIL HOOK (Invite Code) ========== -->
-  <section id="invite" class="py-16 bg-gray-50">
-    <div class="max-w-2xl mx-auto px-6">
-      <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center">
-        <div class="text-4xl mb-4">🎯</div>
-        <h2 class="text-xl font-bold text-gray-900 mb-2">Got our Cold Email?</h2>
-        <p class="text-gray-500 text-sm mb-6">Enter your invite code to unlock an extra <strong class="text-primary">$10 trial credit</strong> (on top of the $5 seat bonus)</p>
-
-        <div class="flex gap-3 max-w-md mx-auto">
-          <input
-            type="text"
-            id="inviteCodeInput"
-            placeholder="SEA-XXXX-XXXX"
-            class="flex-1 border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary uppercase tracking-wider"
-            maxlength="20"
-          >
-          <button
-            id="inviteCodeBtn"
-            onclick="verifyInviteCode()"
-            class="bg-primary text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition font-medium text-sm whitespace-nowrap"
-          >
-            Unlock →
-          </button>
-        </div>
-        <div id="inviteStatus" class="invite-status"></div>
-        <p class="text-xs text-gray-400 mt-3">Valid for 14 days after email receipt · One-time use per email</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== RETENTION MECHANISMS (34/N) ========== -->
-  <section id="retention" class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-gray-900 mb-3">🎁 Why Users Stay</h2>
-        <p class="text-gray-500">4 retention mechanisms designed for SEA developer community</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1: Invite Code Commission -->
-        <div class="retain-card bg-white rounded-2xl border border-gray-200 p-6 shadow-lg">
-          <div class="text-4xl mb-4">🤝</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Invite & Earn</h3>
-          <p class="text-sm text-gray-600 mb-4">Share your unique invite code. Earn commission on every friend's spend.</p>
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-primary rounded-full"></span>
-              <span class="text-sm font-semibold text-primary">Tier 1: 5% commission</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-blue-300 rounded-full"></span>
-              <span class="text-sm text-gray-600">Tier 2: 2% commission</span>
-            </div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <p class="text-xs text-gray-400">Lifetime commission · No cap · Auto-settled weekly</p>
-          </div>
-        </div>
-
-        <!-- Card 2: First-Charge Double -->
-        <div class="retain-card bg-white rounded-2xl border border-gray-200 p-6 shadow-lg">
-          <div class="text-4xl mb-4">💰</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">First-Charge Bonus</h3>
-          <p class="text-sm text-gray-600 mb-4">Your first top-up gets <strong class="text-primary">2× matched</strong> — double the computing power from day one.</p>
-          <div class="bg-blue-50 rounded-lg p-3 text-center">
-            <div class="text-2xl font-extrabold text-primary">Cap $200</div>
-            <div class="text-xs text-gray-500 mt-1">Max bonus per account</div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <p class="text-xs text-gray-400">One-time · Applies to all payment methods</p>
-          </div>
-        </div>
-
-        <!-- Card 3: Tiered Pricing -->
-        <div class="retain-card bg-white rounded-2xl border border-gray-200 p-6 shadow-lg">
-          <div class="text-4xl mb-4">📈</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">Volume Discounts</h3>
-          <p class="text-sm text-gray-600 mb-4">The more you spend, the less you pay. Automatic tier upgrades — no negotiation needed.</p>
-          <div class="space-y-2">
-            <div class="flex items-center justify-between bg-gray-50 rounded-lg px-3 py-2">
-              <span class="text-sm text-gray-600">>$500/mo</span>
-              <span class="text-sm font-bold text-primary">5% off</span>
-            </div>
-            <div class="flex items-center justify-between bg-blue-50 rounded-lg px-3 py-2">
-              <span class="text-sm text-gray-600">>$2,000/mo</span>
-              <span class="text-sm font-bold text-primary">8% off</span>
-            </div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <p class="text-xs text-gray-400">Auto-applied · Stacks with invite commission</p>
-          </div>
-        </div>
-
-        <!-- Card 4: SLA Credit -->
-        <div class="retain-card bg-white rounded-2xl border border-gray-200 p-6 shadow-lg">
-          <div class="text-4xl mb-4">🛡️</div>
-          <h3 class="font-bold text-gray-900 text-lg mb-2">SLA Credit</h3>
-          <p class="text-sm text-gray-600 mb-4">After the first-month red-line period, earn <strong class="text-primary">service credits</strong> for any downtime.</p>
-          <div class="space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-success rounded-full"></span>
-              <span class="text-sm text-gray-600">99.5% uptime → 10% credit</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-warning rounded-full"></span>
-              <span class="text-sm text-gray-600">99.0% uptime → 25% credit</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-danger rounded-full"></span>
-              <span class="text-sm text-gray-600">< 99.0% → 50% credit</span>
-            </div>
-          </div>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <p class="text-xs text-gray-400">Auto-issued · No ticket required · Applied next billing</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 text-center">
-        <p class="text-sm text-gray-500">
-          💡 <strong class="text-gray-700">First-month red line:</strong> Zero discount · Zero SLA · Zero refund — transparent from day one.
-          After D30, all retention mechanisms activate automatically.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FINAL CTA ========== -->
-  <section class="py-16 bg-gradient-to-br from-gray-900 to-gray-800">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-white mb-4">Ready to start?</h2>
-      <p class="text-gray-300 mb-8">Join 87+ SEA developers already using SEA-COMPUTE</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#register" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg hover:bg-blue-700 transition font-semibold text-lg" data-hook="cta_signup_final">
-          ⚡ Sign up free · Get $5 credit
-        </a>
-        <a href="mailto:support@sea-compute.io" class="inline-flex items-center justify-center gap-2 border border-gray-500 text-gray-300 px-8 py-3.5 rounded-lg hover:border-primary hover:text-primary transition font-medium" data-hook="cta_contact_email">
-          📧 Contact us · Cold Email channel
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
+  <!-- Footer -->
   <footer class="bg-gray-900 border-t border-gray-800 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center gap-2 mb-4">
             <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span class="text-white font-bold text-sm">SC</span>
             </div>
-            <span class="font-bold text-lg text-white">SEA-COMPUTE</span>
+            <span class="font-bold text-xl text-white">SEA-COMPUTE</span>
           </div>
-          <p class="text-sm text-gray-400">Affordable GPU cloud for Southeast Asia developers</p>
+          <p class="text-sm text-gray-400">Cross-border cloud computing marketplace for global small developers</p>
         </div>
         <div>
-          <h4 class="font-medium text-white mb-3">Product</h4>
+          <h4 class="font-semibold text-white mb-3">Product</h4>
           <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
-            <li><a href="#" class="hover:text-white transition">Products</a></li>
-            <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+            <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-medium text-white mb-3">Legal</h4>
+          <h4 class="font-semibold text-white mb-3">Legal</h4>
           <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-white transition">Data Residency (SG)</a></li>
+            <li><a href="#terms" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="#privacy" class="hover:text-white">Privacy Policy</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-medium text-white mb-3">Language</h4>
+          <h4 class="font-semibold text-white mb-3">Contact</h4>
           <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('en');return false">🇺🇸 English</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('zh-CN');return false">🇨🇳 中文简体</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('zh-TW');return false">🇭🇰 中文繁體</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('vi');return false">🇻🇳 Tiếng Việt</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('id');return false">🇮🇩 Bahasa Indonesia</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('ms');return false">🇲🇾 Bahasa Melayu</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('th');return false">🇹🇭 ภาษาไทย</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('ja');return false">🇯🇵 日本語</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('de');return false">🇩🇪 Deutsch</a></li>
-            <li><a href="#" class="hover:text-white transition" onclick="switchLangByCode('it');return false">🇮🇹 Italiano</a></li>
+            <li>hello@sea-compute.com</li>
+            <li>privacy@sea-compute.com</li>
           </ul>
         </div>
       </div>
-      <!-- Global CDN Node Visual (36/N Patch 2) -->
-      <div class="border-t border-gray-800 pt-6 mb-6">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-          <p class="text-sm text-gray-400">
-            🌏 <strong class="text-gray-300">Global 6-region edge delivery</strong> · Avg latency &lt;80ms · Cloudflare + Vercel dual CDN
-          </p>
-          <div class="flex items-center gap-3 text-xs text-gray-500">
-            <span class="flex items-center gap-1" title="Singapore">🇸🇬 SG</span>
-            <span class="text-gray-700">·</span>
-            <span class="flex items-center gap-1" title="Jakarta">🇮🇩 JKT</span>
-            <span class="text-gray-700">·</span>
-            <span class="flex items-center gap-1" title="Ho Chi Minh">🇻🇳 HCM</span>
-            <span class="text-gray-700">·</span>
-            <span class="flex items-center gap-1" title="Bangkok">🇹🇭 BKK</span>
-            <span class="text-gray-700">·</span>
-            <span class="flex items-center gap-1" title="Tokyo">🇯🇵 TYO</span>
-            <span class="text-gray-700">·</span>
-            <span class="flex items-center gap-1" title="Frankfurt">🇩🇪 FRA</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-sm text-gray-500">© 2026 SEA-COMPUTE · support@sea-compute.io</p>
-        <div class="flex items-center gap-2 text-sm text-gray-500">
-          <span class="w-2 h-2 bg-success rounded-full pulse-dot"></span>
-          <span>All systems operational</span>
-        </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+        <p>© 2026 SEA-COMPUTE. All rights reserved.</p>
       </div>
     </div>
   </footer>
-
-  <!-- ========== EXIT INTENT MODAL ========== -->
-  <div id="exitModal" class="exit-modal fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] items-center justify-center">
-    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
-      <div class="text-4xl mb-4">⏳</div>
-      <h3 class="text-xl font-bold text-gray-900 mb-2">Wait! Don't leave empty-handed</h3>
-      <p class="text-gray-500 text-sm mb-6">Claim your $5 free trial credit before you go. No credit card required.</p>
-      <a href="#register" class="block bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition" onclick="closeExitModal()" data-hook="cta_exit_intent">
-        Claim $5 free credit →
-      </a>
-      <button class="text-sm text-gray-400 mt-3 hover:text-gray-600" onclick="closeExitModal()">No thanks</button>
-    </div>
-  </div>
-
-  <!-- ========== COMING SOON MODAL (36/N) ========== -->
-  <div id="comingModal" class="coming-modal fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] items-center justify-center">
-    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
-      <div class="text-4xl mb-4">🚀</div>
-      <h3 id="comingTitle" class="text-xl font-bold text-gray-900 mb-2">Solutions</h3>
-      <p class="text-gray-500 text-sm mb-6">Coming soon · Phase 1 launches on D1. Stay tuned for industry-specific GPU compute solutions and step-by-step onboarding guides.</p>
-      <a href="#register" class="block bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition" onclick="closeComingModal()" data-hook="cta_coming_soon_signup">
-        Sign up · Get notified →
-      </a>
-      <button class="text-sm text-gray-400 mt-3 hover:text-gray-600" onclick="closeComingModal()">Close</button>
-    </div>
-  </div>
-
-  <!-- ========== A19 HARD-CAP MODAL (v0.5 · 71/N · blocking) ========== -->
-  <div id="a19Modal" class="a19-modal fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] items-center justify-center">
-    <div class="bg-white rounded-2xl p-8 max-w-lg mx-4 text-center">
-      <div class="text-5xl mb-4">🔒</div>
-      <h3 class="text-xl font-bold text-gray-900 mb-2">大额延后至万里汇激活</h3>
-      <p class="text-sm text-gray-500 mb-4">High-value transaction deferred to WorldFirst activation</p>
-      <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4 text-left">
-        <p class="text-sm text-red-800 font-medium mb-2">⚠️ A19 硬顶熔断已触发</p>
-        <p class="text-xs text-red-700">24h 累计交易额已达 <strong>$8,000</strong> 上限。为保障资金安全，超额部分将延后至万里汇 B2B 通道激活后处理。</p>
-      </div>
-      <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left">
-        <p class="text-sm text-blue-800 font-medium mb-1">📋 当前状态</p>
-        <div class="text-xs text-blue-700 space-y-1">
-          <p>• 24h 已用额度：<strong id="a19UsedDisplay">$8,000</strong> / $8,000</p>
-          <p>• 待处理订单：<strong id="a19PendingDisplay">1 笔</strong></p>
-          <p>• 预计处理时间：万里汇激活后 <strong>1-2 个工作日</strong></p>
-        </div>
-      </div>
-      <div class="flex gap-3">
-        <button onclick="closeA19()" class="flex-1 bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-          我知道了 · 等待处理
-        </button>
-        <button onclick="closeA19()" class="px-4 py-3 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 transition text-sm">
-          关闭
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== ADMIN DEMO PANEL (v0.5 · dev only · hidden in production) ========== -->
-  <div id="adminDemoPanel" class="admin-demo-panel">
-    <div class="flex items-center justify-between mb-3">
-      <span class="font-bold text-xs text-blue-400">🔧 Admin Demo (dev)</span>
-      <button onclick="toggleAdminPanel()" class="text-gray-400 hover:text-white text-xs">✕</button>
-    </div>
-    <div class="text-xs text-gray-400 mb-2">模拟告警触发：</div>
-    <button id="btnA13" onclick="triggerA13()">🟡 A13 · 当日通道产能已满 (GMV&gt;$3k)</button>
-    <button id="btnA19" onclick="triggerA19()">🔴 A19 · 大额延后万里汇 ($8k/24h)</button>
-    <div class="text-xs text-gray-400 mt-3 mb-1">admin 埋点测试：</div>
-    <button onclick="fireAdminEvent('admin.hk_account.trigger')">#34 hk_account.trigger</button>
-    <button onclick="fireAdminEvent('admin.hk_account.pending.wait')">#35 hk_account.pending.wait</button>
-    <button onclick="fireAdminEvent('admin.wanlihui.activate.wait')">#36 wanlihui.activate.wait</button>
-    <button onclick="fireAdminEvent('admin.wanlihui.activate.done')">#37 wanlihui.activate.done</button>
-  </div>
-
-  <!-- ========== JAVASCRIPT ========== -->
-  <script>
-    // ===== M2 Analytics Stub (will be replaced by full SDK in M3) =====
-    const SeaAnalytics = {
-      queue: [],
-      track(action, properties = {}) {
-        const event = {
-          action,
-          category: action.startsWith('admin.') ? 'admin' : action.startsWith('portal.landing') ? 'landing' : 'portal',
-          properties,
-          pii_flag: !!properties.pii_flag,
-          ts: new Date().toISOString(),
-          url: window.location.href,
-          referrer: document.referrer,
-        };
-        this.queue.push(event);
-        console.log('[SEA-Analytics]', action, properties);
-        // M2: log only. M3: batch upload to /api/trpc/analytics.track
-      },
-      trackView(action, el) {
-        if (!el._tracked) {
-          el._tracked = true;
-          this.track(action, { element: el.dataset?.sku || '' });
-        }
-      },
-      // v0.5: admin 通道 4 埋点 (#34-#37 · 76/N 桥接)
-      admin: {
-        // #34: 港卡触发 → A13 关联
-        hkAccountTrigger(properties = {}) {
-          SeaAnalytics.track('admin.hk_account.trigger', { ...properties, pii_flag: true });
-        },
-        // #35: 港卡 pending 等待 → A12 关联
-        hkAccountPendingWait(properties = {}) {
-          SeaAnalytics.track('admin.hk_account.pending.wait', { ...properties, pii_flag: true });
-        },
-        // #36: 万里汇激活等待 → A19 关联
-        wanlihuiActivateWait(properties = {}) {
-          SeaAnalytics.track('admin.wanlihui.activate.wait', { ...properties, pii_flag: true });
-        },
-        // #37: 万里汇激活完成 → A19 关联
-        wanlihuiActivateDone(properties = {}) {
-          SeaAnalytics.track('admin.wanlihui.activate.done', { ...properties, pii_flag: true });
-        }
-      }
-    };
-
-    // ===== Page view tracking =====
-    SeaAnalytics.track('portal.landing.page_view', {
-      utm_source: new URLSearchParams(location.search).get('utm') || '',
-      utm_campaign: new URLSearchParams(location.search).get('code') || '',
-    });
-
-    // ===== Click tracking (data-track attribute) =====
-    document.querySelectorAll('[data-track]').forEach(el => {
-      el.addEventListener('click', () => {
-        SeaAnalytics.track(el.dataset.track);
-      });
-    });
-
-    // ===== IntersectionObserver for view tracking =====
-    const viewObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const action = el.dataset.trackView;
-          if (action) {
-            SeaAnalytics.trackView(action, el);
-          }
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('[data-track-view]').forEach(el => {
-      viewObserver.observe(el);
-    });
-
-    // ===== FAQ Accordion =====
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const wasOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      // Toggle clicked
-      if (!wasOpen) {
-        item.classList.add('open');
-        SeaAnalytics.track('portal.landing.faq_expand', {
-          question: btn.querySelector('span').textContent.trim()
-        });
-      }
-    }
-
-    // ===== Invite Code Verification (M2: client-side stub) =====
-    function verifyInviteCode() {
-      const input = document.getElementById('inviteCodeInput');
-      const status = document.getElementById('inviteStatus');
-      const code = input.value.trim().toUpperCase();
-
-      if (!code) {
-        status.textContent = 'Please enter an invite code';
-        status.className = 'invite-status invalid';
-        return;
-      }
-
-      // M2 stub: validate format only. M3: call /api/trpc/landing.verifyInviteCode
-      const formatValid = /^SEA-[A-Z0-9]{4}-[A-Z0-9]{4,8}$/.test(code);
-
-      // CEO test code (hardcoded for M2 demo)
-      if (code === 'SEA-CEO-0001') {
-        status.textContent = '✅ Valid! $50 trial credit will be added on registration';
-        status.className = 'invite-status valid';
-        SeaAnalytics.track('portal.landing.cold_email_hook_click', {
-          code: 'SEA-CEO-0001',
-          valid: true,
-          credit: 50,
-        });
-      } else if (formatValid) {
-        status.textContent = '✅ Valid! $10 extra trial credit will be added on registration';
-        status.className = 'invite-status valid';
-        SeaAnalytics.track('portal.landing.cold_email_hook_click', {
-          code: code,
-          valid: true,
-          credit: 10,
-        });
-      } else {
-        status.textContent = '❌ Invalid code format. Expected: SEA-XXXX-XXXX';
-        status.className = 'invite-status invalid';
-        SeaAnalytics.track('portal.landing.cold_email_hook_click', {
-          code: code,
-          valid: false,
-        });
-      }
-    }
-
-    // Auto-fill invite code from URL parameter
-    (function() {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get('code');
-      if (code) {
-        const input = document.getElementById('inviteCodeInput');
-        if (input) {
-          input.value = code.toUpperCase();
-          SeaAnalytics.track('portal.landing.cold_email_hook_view', {
-            auto_filled: true,
-            code: code,
-          });
-        }
-      }
-    })();
-
-    // ===== Exit Intent Detection =====
-    let exitShown = false;
-    document.addEventListener('mouseout', (e) => {
-      if (e.clientY < 10 && !exitShown) {
-        exitShown = true;
-        document.getElementById('exitModal').classList.add('show');
-        SeaAnalytics.track('portal.landing.exit_intent');
-      }
-    });
-    function closeExitModal() {
-      document.getElementById('exitModal').classList.remove('show');
-    }
-
-    // ===== Beta Seats Counter (M2: static, M3: poll API) =====
-    // Simulated countdown: decrement by 1 every 30-90s for demo
-    (function() {
-      let seats = 87;
-      const el = document.getElementById('seatsRemaining');
-      setInterval(() => {
-        if (seats > 13 && Math.random() > 0.6) {
-          seats--;
-          el.textContent = seats;
-        }
-      }, 45000); // every 45s
-    })();
-
-    // ===== i18n Language Switch (36/N Patch 1 + Patch 4) =====
-    const SUPPORTED_LANGS = {
-      'en': { flag: '🇺🇸', name: 'English' },
-      'zh-CN': { flag: '🇨🇳', name: '中文简体' },
-      'zh-TW': { flag: '🇭🇰', name: '中文繁體' },
-      'vi': { flag: '🇻🇳', name: 'Tiếng Việt' },
-      'id': { flag: '🇮🇩', name: 'Bahasa Indonesia' },
-      'ms': { flag: '🇲🇾', name: 'Bahasa Melayu' },
-      'th': { flag: '🇹🇭', name: 'ภาษาไทย' },
-      'ja': { flag: '🇯🇵', name: '日本語' },
-      'de': { flag: '🇩🇪', name: 'Deutsch' },
-      'it': { flag: '🇮🇹', name: 'Italiano' },
-    };
-
-    // Toggle language dropdown
-    function toggleLangDropdown() {
-      const dd = document.getElementById('langDropdown');
-      dd.classList.toggle('open');
-      SeaAnalytics.track('portal.landing.language_dropdown_toggle', { open: dd.classList.contains('open') });
-    }
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      const dd = document.getElementById('langDropdown');
-      const btn = document.getElementById('langBtn');
-      if (dd && !dd.contains(e.target) && !btn.contains(e.target)) {
-        dd.classList.remove('open');
-      }
-    });
-
-    // Switch language from header dropdown item
-    function switchLang(el) {
-      const lang = el.dataset.lang;
-      const flag = el.dataset.flag;
-      applyLanguage(lang, flag);
-      document.getElementById('langDropdown').classList.remove('open');
-      SeaAnalytics.track('portal.landing.language_switch', { lang, source: 'header_dropdown' });
-    }
-
-    // Switch language from footer link
-    function switchLangByCode(code) {
-      const info = SUPPORTED_LANGS[code];
-      if (info) {
-        applyLanguage(code, info.flag);
-        SeaAnalytics.track('portal.landing.language_switch', { lang: code, source: 'footer' });
-      }
-    }
-
-    // Apply language: update button label, persist, mark active
-    function applyLanguage(lang, flag) {
-      // Update header button
-      const btn = document.getElementById('langBtn');
-      if (btn) {
-        btn.innerHTML = `<span class="flag">${flag}</span> ${SUPPORTED_LANGS[lang]?.name || lang} <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>`;
-      }
-      // Mark active in dropdown
-      document.querySelectorAll('.lang-dropdown-item').forEach(item => {
-        item.classList.toggle('active', item.dataset.lang === lang);
-      });
-      // Persist to localStorage
-      localStorage.setItem('sea-compute-lang', lang);
-      // M2: visual only. M3: load i18n.json and swap all text via data-i18n keys
-      console.log('[SEA-i18n] Language set to:', lang, '(M2: visual only, M3: full text swap)');
-    }
-
-    // Auto-detect language on page load
-    (function() {
-      const saved = localStorage.getItem('sea-compute-lang');
-      if (saved && SUPPORTED_LANGS[saved]) {
-        applyLanguage(saved, SUPPORTED_LANGS[saved].flag);
-        return;
-      }
-      // navigator.language auto-detect
-      const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-      // Try exact match first, then prefix match
-      let detected = SUPPORTED_LANGS[browserLang] ? browserLang : null;
-      if (!detected) {
-        const prefix = browserLang.split('-')[0];
-        const mapping = { 'zh': 'zh-CN', 'vi': 'vi', 'id': 'id', 'ms': 'ms', 'th': 'th', 'ja': 'ja', 'de': 'de', 'it': 'it', 'en': 'en' };
-        detected = mapping[prefix] || 'en';
-      }
-      applyLanguage(detected, SUPPORTED_LANGS[detected]?.flag || '🇺🇸');
-    })();
-
-    // ===== Coming Soon Modal (36/N Patch 3) =====
-    function showComingSoon(event, title) {
-      if (event) event.preventDefault();
-      const modal = document.getElementById('comingModal');
-      const titleEl = document.getElementById('comingTitle');
-      if (titleEl) titleEl.textContent = title || 'Coming Soon';
-      modal.classList.add('show');
-      SeaAnalytics.track('portal.landing.coming_soon_view', { title: title || 'Coming Soon' });
-    }
-
-    function closeComingModal() {
-      document.getElementById('comingModal').classList.remove('show');
-    }
-
-    // ===== beforeunload: flush analytics =====
-    window.addEventListener('beforeunload', () => {
-      if (SeaAnalytics.queue.length > 0) {
-        // M2: log. M3: navigator.sendBeacon to /api/trpc/analytics.track
-        console.log('[SEA-Analytics] Flushing', SeaAnalytics.queue.length, 'events');
-      }
-    });
-
-    // ===== USDT Address Copy (v0.4 · 59/N+60/N) =====
-    // M2: 脱敏地址展示 · M3: /api/v1/pay/usdt/address 动态下发
-    const USDT_ADDRESS_MASKED = 'TL****...****Mkq8';
-    const USDT_ADDRESS_FULL = 'TL****...****Mkq8'; // M3 起从 API 获取真实地址
-
-    function copyUsdtAddress() {
-      const text = USDT_ADDRESS_FULL;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copy-btn');
-        const original = btn.innerHTML;
-        btn.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 已复制';
-        btn.classList.remove('bg-primary');
-        btn.classList.add('bg-success');
-        SeaAnalytics.track('portal.landing.usdt_address_copy', { variant: 'masked' });
-        setTimeout(() => {
-          btn.innerHTML = original;
-          btn.classList.remove('bg-success');
-          btn.classList.add('bg-primary');
-        }, 2000);
-      }).catch(() => {
-        // Fallback for older browsers
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        alert('地址已复制');
-      });
-    }
-
-    function copyUsdtAddressFull() {
-      navigator.clipboard.writeText(USDT_ADDRESS_FULL).then(() => {
-        SeaAnalytics.track('portal.landing.usdt_address_copy', { variant: 'full' });
-        alert('USDT 地址已复制到剪贴板 · 请确认网络为 TRC-20');
-      }).catch(() => {
-        const ta = document.createElement('textarea');
-        ta.value = USDT_ADDRESS_FULL;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        alert('USDT 地址已复制 · 请确认网络为 TRC-20');
-      });
-    }
-
-    // ===== A13 Capacity Banner (v0.5 · 71/N · non-blocking) =====
-    // Trigger: 累计 GMV > $3k/30d rolling → show banner "当日通道产能已满"
-    function triggerA13() {
-      const banner = document.getElementById('a13Banner');
-      banner.classList.add('show');
-      SeaAnalytics.admin.hkAccountTrigger({ threshold: 3000, unit: 'USD', period: '30d' });
-      SeaAnalytics.track('portal.payment.a13_banner_show', { reason: 'daily_capacity_full' });
-      document.getElementById('btnA13')?.classList.add('active-toggle');
-    }
-
-    function dismissA13() {
-      document.getElementById('a13Banner').classList.remove('show');
-      SeaAnalytics.track('portal.payment.a13_banner_dismiss');
-      document.getElementById('btnA13')?.classList.remove('active-toggle');
-    }
-
-    // ===== A19 Hard-Cap Modal (v0.5 · 71/N · blocking) =====
-    // Trigger: $8k/24h hard cap → blocking modal "大额延后至万里汇激活"
-    function triggerA19() {
-      const modal = document.getElementById('a19Modal');
-      modal.classList.add('show');
-      SeaAnalytics.admin.wanlihuiActivateWait({ threshold: 8000, unit: 'USD', period: '24h', blocked: true });
-      SeaAnalytics.track('portal.payment.a19_modal_show', { reason: 'hard_cap_reached' });
-      document.getElementById('btnA19')?.classList.add('active-toggle');
-    }
-
-    function closeA19() {
-      document.getElementById('a19Modal').classList.remove('show');
-      SeaAnalytics.track('portal.payment.a19_modal_close');
-      document.getElementById('btnA19')?.classList.remove('active-toggle');
-    }
-
-    // ===== 支付宝双户 Tab 切换 (v0.5 · 54/N 桥接联动) =====
-    function switchAlipayTab(tab) {
-      const tabA = document.getElementById('alipayTabA');
-      const tabB = document.getElementById('alipayTabB');
-      const panelA = document.getElementById('alipayPanelA');
-      const panelB = document.getElementById('alipayPanelB');
-      if (tab === 'A') {
-        tabA.classList.add('active');
-        tabB.classList.remove('active');
-        panelA.classList.remove('hidden');
-        panelB.classList.add('hidden');
-      } else {
-        tabB.classList.add('active');
-        tabA.classList.remove('active');
-        panelB.classList.remove('hidden');
-        panelA.classList.add('hidden');
-      }
-      SeaAnalytics.track('portal.payment.alipay_tab_switch', { tab });
-    }
-
-    // ===== Admin Demo Panel (v0.5 · dev only) =====
-    function toggleAdminPanel() {
-      document.getElementById('adminDemoPanel').classList.toggle('show');
-    }
-
-    function fireAdminEvent(action) {
-      SeaAnalytics.track(action, { source: 'demo_panel', ts: Date.now() });
-      console.log('[Admin Demo] Fired:', action);
-    }
-
-    // Admin panel shortcut: Ctrl+Shift+A (dev only)
-    document.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-        toggleAdminPanel();
-      }
-    });
-  </script>
-
-  <!-- M2 Version Marker -->
-  <!-- SEA-COMPUTE M2 Preview · v0.5 · 2026-07-14 · #8 中转平台全栈开发 -->
-  <!-- 28/N 三段式上线 · 第一段：静态 HTML wireframe -->
-  <!-- 34/N 竞品差异化令 · v0.2 新增：竞品对比表(5家×7维) + 留存机制卡片(4张) -->
-  <!-- 36/N 国际化+线路+占位令 · v0.3 新增：10语下拉+IP自动检测+CDN节点可视化+Solutions/Getting Started占位+data-hook可扩展 -->
-  <!-- 59/N+60/N 收款v2.2令 · v0.4 新增：6 SKU补齐(P4090-STD+PA100-BDG) · 3处P0硬编码修复 · 支付通道v2.2(万里汇/USDT/支付宝/Wise+PayPal灰显) · USDT脱敏地址+一键复制+二次确认 -->
-  <!-- 71/N+76/N v0.5令 · v0.5 新增：A13 Banner(当日通道产能已满·non-blocking) + A19 Modal($8k/24h硬顶熔断·blocking) + 权重可视化条(57/35/8/0/0·v1.4锁定) + 支付宝双户UI(A客户直付/B万里汇落地·tab切换) + admin通道4埋点(#34-#37·SeaAnalytics.admin.*) + Admin Demo Panel(Ctrl+Shift+A) -->
 </body>
 </html>
