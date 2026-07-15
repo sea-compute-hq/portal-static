@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact · SEA-COMPUTE</title>
+  <meta name="description" content="Contact SEA-COMPUTE support and sales. Cross-border cloud computing service reseller.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#2563EB', success: '#10B981', warning: '#F59E0B', danger: '#EF4444' },
+          fontFamily: { sans: ['Inter', 'PingFang SC', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans">
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-white">SEA-COMPUTE</a>
+      <div class="hidden md:flex gap-8 text-sm">
+        <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+        <a href="/about.html" class="text-slate-400 hover:text-white transition">About</a>
+        <a href="/contact.html" class="text-primary font-medium">Contact</a>
+        <a href="/terms.html" class="text-slate-400 hover:text-white transition">Terms</a>
+        <a href="/privacy.html" class="text-slate-400 hover:text-white transition">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-bg pt-32 pb-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Contact Us</h1>
+      <p class="text-lg text-slate-400">Questions about GPU cloud resources, pricing, or partnerships? We're here to help.</p>
+    </div>
+  </section>
+
+  <!-- Contact Methods -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Email -->
+        <div class="bg-slate-900 rounded-xl p-8 border border-slate-800">
+          <div class="text-3xl mb-4">📧</div>
+          <h2 class="text-xl font-bold text-white mb-2">Email</h2>
+          <p class="text-slate-400 mb-4">For general inquiries and support</p>
+          <a href="mailto:support@sea-compute.com" class="text-primary hover:underline">support@sea-compute.com</a>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="bg-slate-900 rounded-xl p-8 border border-slate-800">
+          <div class="text-3xl mb-4">🕐</div>
+          <h2 class="text-xl font-bold text-white mb-2">Business Hours</h2>
+          <p class="text-slate-400 mb-4">We respond within 24 hours</p>
+          <div class="text-sm text-slate-300">
+            <p>Monday – Friday: 09:00 – 18:00 (SGT)</p>
+            <p>Saturday: 10:00 – 14:00 (SGT)</p>
+          </div>
+        </div>
+
+        <!-- Sales -->
+        <div class="bg-slate-900 rounded-xl p-8 border border-slate-800">
+          <div class="text-3xl mb-4">💼</div>
+          <h2 class="text-xl font-bold text-white mb-2">Sales</h2>
+          <p class="text-slate-400 mb-4">Enterprise and bulk resource inquiries</p>
+          <a href="mailto:sales@sea-compute.com" class="text-primary hover:underline">sales@sea-compute.com</a>
+        </div>
+
+        <!-- Region -->
+        <div class="bg-slate-900 rounded-xl p-8 border border-slate-800">
+          <div class="text-3xl mb-4">🌏</div>
+          <h2 class="text-xl font-bold text-white mb-2">Service Region</h2>
+          <p class="text-slate-400 mb-4">Southeast Asia and global</p>
+          <div class="text-sm text-slate-300">
+            <p>Primary: Singapore, Indonesia, Vietnam, Thailand, Malaysia, Philippines</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+      <p>&copy; 2026 SEA-COMPUTE. Cross-border cloud computing service reseller.</p>
+      <div class="mt-4 flex justify-center gap-6">
+        <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
+        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy</a>
+        <a href="/contact.html" class="hover:text-slate-300 transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
