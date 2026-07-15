@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing · SEA-COMPUTE</title>
+  <meta name="description" content="Transparent monthly billing for GPU/CPU compute. No hidden fees.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#2563EB', success: '#10B981' },
+          fontFamily: { sans: ['Inter', 'PingFang SC', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
+        <span class="font-bold text-xl text-gray-900">SEA-COMPUTE</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="pricing.html" class="text-sm font-medium text-primary">Pricing</a>
+        <a href="about.html" class="text-sm font-medium text-gray-600 hover:text-primary">About</a>
+        <a href="terms.html" class="text-sm font-medium text-gray-600 hover:text-primary">Terms</a>
+        <a href="privacy.html" class="text-sm font-medium text-gray-600 hover:text-primary">Privacy</a>
+        <a href="index.html#register" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pt-24 pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-3 text-center">⚡ Transparent Pricing</h1>
+      <p class="text-gray-600 text-center mb-4 text-lg">Monthly billing · No hidden fees · Cancel anytime</p>
+      <p class="text-center mb-12">
+        <span class="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">✓ No freezing computing power · ✓ No locking balance · ✓ No freezing withdrawal</span>
+      </p>
+      
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">GPU Instances</h2>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">GPU Starter</h3>
+          <div class="text-3xl font-bold text-primary mb-1">$0.15<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <p class="text-xs text-gray-500 mb-4">~$108/mo at full utilization</p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ NVIDIA T4 / RTX 3060</li>
+            <li>✓ 16GB VRAM</li>
+            <li>✓ 4 vCPU / 16GB RAM</li>
+            <li>✓ 100GB NVMe SSD</li>
+            <li>✓ Monthly billing</li>
+          </ul>
+          <a href="index.html#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
+        </div>
+        
+        <div class="bg-white border-2 border-primary rounded-xl p-6 relative hover:shadow-lg transition">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">POPULAR</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">GPU Pro</h3>
+          <div class="text-3xl font-bold text-primary mb-1">$0.45<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <p class="text-xs text-gray-500 mb-4">~$324/mo at full utilization</p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ NVIDIA A100 / V100</li>
+            <li>✓ 40GB VRAM</li>
+            <li>✓ 8 vCPU / 32GB RAM</li>
+            <li>✓ 250GB NVMe SSD</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <a href="index.html#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">GPU Enterprise</h3>
+          <div class="text-3xl font-bold text-primary mb-1">$1.20<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <p class="text-xs text-gray-500 mb-4">~$864/mo at full utilization</p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ NVIDIA H100 / A100 80GB</li>
+            <li>✓ 80GB VRAM</li>
+            <li>✓ 16 vCPU / 64GB RAM</li>
+            <li>✓ 500GB NVMe SSD</li>
+            <li>✓ Dedicated support</li>
+          </ul>
+          <a href="index.html#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Contact Sales</a>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">CPU Instances</h2>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">CPU Basic</h3>
+          <div class="text-3xl font-bold text-primary mb-1">$0.03<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <p class="text-xs text-gray-500 mb-4">~$22/mo at full utilization</p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ 4 vCPU / 16GB RAM</li>
+            <li>✓ 200GB SSD</li>
+            <li>✓ 1Gbps network</li>
+            <li>✓ Monthly billing</li>
+          </ul>
+          <a href="index.html#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">CPU Standard</h3>
+          <div class="text-3xl font-bold text-primary mb-1">$0.05<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <p class="text-xs text-gray-500 mb-4">~$36/mo at full utilization</p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ 8 vCPU / 32GB RAM</li>
+            <li>✓ 500GB SSD</li>
+            <li>✓ 5Gbps network</li>
+            <li>✓ Monthly billing</li>
+          </ul>
+          <a href="index.html#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">CPU Premium</h3>
+          <div class="text-3xl font-bold text-primary mb-1">$0.12<span class="text-base text-gray-500 font-normal">/hr</span></div>
+          <p class="text-xs text-gray-500 mb-4">~$86/mo at full utilization</p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ 16 vCPU / 64GB RAM</li>
+            <li>✓ 1TB SSD</li>
+            <li>✓ 10Gbps network</li>
+            <li>✓ Monthly billing</li>
+          </ul>
+          <a href="index.html#register" class="block text-center bg-primary text-white py-2.5 rounded-lg font-medium hover:bg-blue-700">Get Started</a>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <h3 class="font-bold text-gray-900 mb-2">💳 Payment Methods</h3>
+        <p class="text-gray-700">WorldFirst · PayPal · Bank Transfer (USD/EUR/GBP) · Alipay (for qualified accounts)</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 border-t border-gray-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
+            <span class="font-bold text-xl text-white">SEA-COMPUTE</span>
+          </div>
+          <p class="text-sm text-gray-400">Cross-border cloud computing marketplace for global small developers</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">Product</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
+            <li><a href="about.html" class="hover:text-white">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">Legal</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">Contact</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>hello@sea-compute.com</li>
+            <li>privacy@sea-compute.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+        <p>© 2026 SEA-COMPUTE. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
