@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service · SEA-COMPUTE</title>
-  <meta name="description" content="Terms of Service for SEA-COMPUTE cross-border cloud computing marketplace.">
+  <meta name="description" content="SEA-COMPUTE Terms of Service. Prepaid model, Three-Never Rule, anti-abuse policy, corporate graduation criteria.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary: '#2563EB' },
+          colors: { primary: '#2563EB', success: '#10B981', warning: '#F59E0B', danger: '#EF4444' },
           fontFamily: { sans: ['Inter', 'PingFang SC', 'sans-serif'] },
         },
       },
@@ -18,103 +18,169 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%); }
+    .hero-glow { background: radial-gradient(ellipse at 30% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%); }
+  </style>
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased">
-  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
-        <span class="font-bold text-xl text-gray-900">SEA-COMPUTE</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="pricing.html" class="text-sm font-medium text-gray-600 hover:text-primary">Pricing</a>
-        <a href="about.html" class="text-sm font-medium text-gray-600 hover:text-primary">About</a>
-        <a href="terms.html" class="text-sm font-medium text-primary">Terms</a>
-        <a href="privacy.html" class="text-sm font-medium text-gray-600 hover:text-primary">Privacy</a>
-        <a href="index.html#register" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Get Started</a>
-      </nav>
+<body class="bg-slate-950 text-slate-200 font-sans">
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-white">SEA-COMPUTE</a>
+      <div class="hidden md:flex gap-8 text-sm">
+        <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+        <a href="/about.html" class="text-slate-400 hover:text-white transition">About</a>
+        <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+        <a href="/terms.html" class="text-primary font-medium">Terms</a>
+        <a href="/privacy.html" class="text-slate-400 hover:text-white transition">Privacy</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <section class="pt-24 pb-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">Terms of Service</h1>
-      <p class="text-gray-500 mb-8">Last updated: July 15, 2026</p>
+  <!-- Hero -->
+  <section class="hero-bg pt-32 pb-16 relative">
+    <div class="hero-glow absolute inset-0"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Terms of Service</h1>
+      <p class="text-slate-400">Effective: 2026-07-15 · Last updated: 2026-07-15</p>
+    </div>
+  </section>
 
-      <div class="prose prose-gray max-w-none">
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§1 Service Description</h2>
-        <p class="text-gray-700 mb-4">SEA-COMPUTE operates a cross-border cloud computing marketplace, providing GPU/CPU compute rental services to global small developers. We aggregate upstream compute capacity and resell it through our platform.</p>
+  <!-- Content -->
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-slate-300 mb-8">Welcome to SEA-COMPUTE (operated by SEA-COMPUTE, hereinafter "we", "us", or "the Platform"). These Terms of Service ("Terms") govern your access to and use of the SEA-COMPUTE marketplace platform ("the Service"). By creating an account or using the Service, you agree to be bound by these Terms.</p>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§2 Service Commitment</h2>
-        <p class="text-gray-700 mb-4">SEA-COMPUTE guarantees the following service standards to all users:</p>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
-          <li><strong>No freezing computing power</strong> — Your allocated compute resources remain fully available and operational throughout your active billing period. We will not suspend or throttle your compute without prior notice.</li>
-          <li><strong>No locking balance</strong> — Your account balance is always accessible. You may request withdrawal of unused funds at any time.</li>
-          <li><strong>No freezing withdrawal</strong> — Withdrawal requests are processed within 24 business hours. We do not impose arbitrary holds on your funds.</li>
+      <!-- §1 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§1. Service Description</h2>
+        <p class="text-slate-300 mb-3">SEA-COMPUTE is a marketplace that connects end users with third-party cloud computing providers. We aggregate and resell GPU and CPU compute resources from providers including but not limited to Vast.ai, RunPod, and TensorDock.</p>
+        <p class="text-slate-300 mb-3">We are <strong class="text-white">not</strong> the direct owner or operator of the underlying hardware. Our role is to provide a unified interface, billing aggregation, multi-provider failover, and value-added services on top of third-party infrastructure.</p>
+        <p class="text-slate-400 text-sm">Third-party providers are independently responsible for hardware availability, physical security, and base-layer network connectivity. We are responsible for the marketplace layer, billing, customer support, and service-level commitments made in these Terms.</p>
+      </div>
+
+      <!-- §2 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§2. Account Registration</h2>
+        <p class="text-slate-300 mb-3">You must provide accurate identification during registration. Depending on your usage tier, you may be required to complete KYC-Lite verification (see our <a href="/privacy.html" class="text-primary hover:underline">Privacy Policy §3</a>).</p>
+        <p class="text-slate-300 mb-3">You are responsible for maintaining the confidentiality of your account credentials. You agree to notify us immediately of any unauthorized access.</p>
+        <p class="text-slate-300">One person = one account. Multiple accounts for the purpose of circumventing limits, abusing promotions, or evading enforcement will result in suspension of all associated accounts.</p>
+      </div>
+
+      <!-- §3 Three-Never Rule -->
+      <div class="mb-10 bg-success/10 rounded-xl p-6 border border-success/30">
+        <h2 class="text-2xl font-bold text-white mb-4">§3. Three-Never Rule (Platform Commitment)</h2>
+        <p class="text-slate-300 mb-3">We make the following unconditional commitments to all legitimate account holders:</p>
+        <ol class="list-decimal list-inside text-slate-300 space-y-2 ml-2">
+          <li><strong class="text-white">Never freeze compute resources</strong> that you have actively paid for and are within their paid validity period.</li>
+          <li><strong class="text-white">Never freeze account balances</strong> without a court order or regulatory directive from a competent authority in our jurisdiction of incorporation.</li>
+          <li><strong class="text-white">Never freeze withdrawal requests</strong> for legitimate, KYC-verified users who have completed required verification steps.</li>
+        </ol>
+        <p class="text-slate-400 text-sm mt-4">These commitments may only be overridden by verifiable legal compulsion. In such cases, we will notify affected users to the extent permitted by law.</p>
+      </div>
+
+      <!-- §4 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§4. Anti-Abuse Policy</h2>
+        <p class="text-slate-300 mb-3">The following activities are prohibited and may result in account suspension or termination:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2 mb-3">
+          <li>Cryptocurrency mining without explicit written authorization</li>
+          <li>Network attacks (DDoS, port scanning, brute force) targeting our platform or third parties</li>
+          <li>Hosting malware, botnets, or command-and-control infrastructure</li>
+          <li>Distribution of child exploitation material or non-consensual intimate imagery</li>
+          <li>Fraud, chargeback abuse, or use of stolen payment instruments</li>
+          <li>Reselling our services without a commercial agreement</li>
+          <li>Circumventing rate limits, geo-restrictions, or access controls</li>
+          <li>Providing false identity documents during KYC verification</li>
         </ul>
+        <p class="text-slate-300">Suspension for abuse does not violate the Three-Never Rule. "Legitimate account holders" in §3 refers to users who are not engaged in the above activities.</p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§3 Billing & Payment</h2>
-        <p class="text-gray-700 mb-4">All services are billed on a monthly basis based on actual usage. You will receive an itemized invoice at the end of each billing cycle. Accepted payment methods include WorldFirst, PayPal, bank transfer (USD/EUR/GBP), and Alipay for qualified accounts.</p>
-        <p class="text-gray-700 mb-4">No long-term contracts are required. You may cancel your services at any time, and you will only be billed for usage up to the cancellation date.</p>
-
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§4 Service Availability</h2>
-        <p class="text-gray-700 mb-4">We maintain a 99.5% monthly uptime SLA. Scheduled maintenance windows are announced at least 48 hours in advance via email and platform notification.</p>
-
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§5 Acceptable Use</h2>
-        <p class="text-gray-700 mb-4">Users must comply with all applicable laws and regulations. The following activities are strictly prohibited:</p>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-          <li>Unauthorized cryptocurrency mining</li>
-          <li>DDoS attacks or network abuse</li>
-          <li>Distribution of malicious software</li>
-          <li>Any activity violating export control or sanctions regulations</li>
+      <!-- §5 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§5. Prepaid Model & Balance Rules</h2>
+        <p class="text-slate-300 mb-3">SEA-COMPUTE operates on a <strong class="text-white">prepaid model</strong>. You must maintain a positive balance to use compute resources. Resources are billed per-second or per-hour depending on the provider, and deducted from your balance in real time.</p>
+        <p class="text-slate-300 mb-4"><strong class="text-white">Two-Waterline Discipline:</strong></p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2 mb-3">
+          <li><strong class="text-white">Low-Balance Waterline</strong>: When your balance drops below a threshold (displayed in your dashboard), you will receive a warning notification. You may continue to use resources but should top up promptly.</li>
+          <li><strong class="text-white">Auto-Suspend Waterline</strong>: When your balance reaches zero or negative, active instances will be suspended (not deleted) after a grace period. You can resume them after topping up within the retention window.</li>
         </ul>
+        <p class="text-slate-300">We do not offer post-pay or credit lines unless explicitly agreed in a commercial contract.</p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§6 Account Termination</h2>
-        <p class="text-gray-700 mb-4">We reserve the right to terminate accounts that violate these terms. Upon termination, you will receive 30 days notice to withdraw remaining balance and export your data.</p>
+      <!-- §6 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§6. Corporate Graduation Criteria</h2>
+        <p class="text-slate-300 mb-3">Business accounts that exceed any of the following thresholds for 3 consecutive months may be invited to "graduate" to a commercial agreement:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2 mb-3">
+          <li>Monthly spend exceeding USD $10,000</li>
+          <li>More than 50 concurrent instances</li>
+          <li>More than 10 sub-users under a single organization</li>
+        </ul>
+        <p class="text-slate-300">Graduation is optional. Users who prefer to remain on the standard prepaid model may do so, subject to standard rate limits.</p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§7 Limitation of Liability</h2>
-        <p class="text-gray-700 mb-4">SEA-COMPUTE's total liability shall not exceed the amount you paid in the 12 months preceding the claim. We are not liable for indirect, incidental, or consequential damages.</p>
+      <!-- §7 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§7. Acceptable Use & Content Policy</h2>
+        <p class="text-slate-300 mb-3">You may use compute resources for any lawful purpose, including but not limited to:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2 mb-3">
+          <li>Machine learning training and inference</li>
+          <li>Scientific computing and simulations</li>
+          <li>Video rendering and transcoding</li>
+          <li>Web application hosting</li>
+          <li>Development and testing environments</li>
+        </ul>
+        <p class="text-slate-300 mb-3">You must comply with all applicable laws in your jurisdiction and in the jurisdiction where the underlying hardware is located.</p>
+        <p class="text-slate-300">We reserve the right to terminate services that generate complaints from upstream providers, even if the activity is not explicitly listed as prohibited.</p>
+      </div>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">§8 Contact</h2>
-        <p class="text-gray-700 mb-4">For questions about these terms, contact us at legal@sea-compute.com.</p>
+      <!-- §8 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§8. Service Availability</h2>
+        <p class="text-slate-300 mb-3">We target <strong class="text-white">99.5% quarterly uptime</strong> for the marketplace platform (API, dashboard, billing). This does not guarantee uninterrupted availability of specific GPU models or third-party provider instances.</p>
+        <p class="text-slate-300 mb-3">Scheduled maintenance will be announced at least 48 hours in advance via email and dashboard notification.</p>
+        <p class="text-slate-300">If uptime falls below 99.5% in a calendar quarter, affected users may request service credits proportional to the downtime. Credits are applied to future billing, not refunded as cash.</p>
+      </div>
+
+      <!-- §9 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§9. Limitation of Liability</h2>
+        <p class="text-slate-300 mb-3">To the maximum extent permitted by law, SEA-COMPUTE's total liability for any claim arising from your use of the Service shall not exceed the amount you paid to us in the 3 months preceding the event giving rise to the claim.</p>
+        <p class="text-slate-300 mb-3">We are not liable for:</p>
+        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-2">
+          <li>Data loss due to your failure to maintain backups</li>
+          <li>Losses caused by third-party provider outages beyond our control</li>
+          <li>Indirect, incidental, or consequential damages</li>
+          <li>Losses arising from your violation of these Terms</li>
+        </ul>
+      </div>
+
+      <!-- §10 -->
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-white mb-4">§10. Changes to Terms</h2>
+        <p class="text-slate-300 mb-3">We may update these Terms from time to time. Material changes will be communicated via email at least 14 days before they take effect. Continued use of the Service after the effective date constitutes acceptance.</p>
+        <p class="text-slate-300">If you do not agree with the updated Terms, you may close your account and request withdrawal of any remaining balance (subject to applicable verification requirements).</p>
+      </div>
+
+      <!-- Contact -->
+      <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+        <h3 class="text-lg font-bold text-white mb-2">Questions?</h3>
+        <p class="text-slate-300 text-sm">Contact us at <a href="mailto:sea.compute.hp+compliance@gmail.com" class="text-primary hover:underline">sea.compute.hp+compliance@gmail.com</a></p>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 border-t border-gray-800 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
-            <span class="font-bold text-xl text-white">SEA-COMPUTE</span>
-          </div>
-          <p class="text-sm text-gray-400">Cross-border cloud computing marketplace for global small developers</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Product</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
-            <li><a href="about.html" class="hover:text-white">About</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
-            <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Contact</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li>hello@sea-compute.com</li>
-            <li>privacy@sea-compute.com</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-        <p>© 2026 SEA-COMPUTE. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+      <p>&copy; 2026 SEA-COMPUTE. Cross-border cloud computing service reseller.</p>
+      <div class="mt-4 flex justify-center gap-6">
+        <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
+        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy</a>
+        <a href="/contact.html" class="hover:text-slate-300 transition">Contact</a>
       </div>
     </div>
   </footer>
