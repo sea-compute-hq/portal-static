@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · SEA-COMPUTE</title>
+  <meta name="description" content="SEA-COMPUTE — Cross-border cloud computing service reseller. Affordable GPU cloud for Southeast Asian developers.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#2563EB', success: '#10B981', warning: '#F59E0B', danger: '#EF4444' },
+          fontFamily: { sans: ['Inter', 'PingFang SC', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans">
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-white">SEA-COMPUTE</a>
+      <div class="hidden md:flex gap-8 text-sm">
+        <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+        <a href="/about.html" class="text-primary font-medium">About</a>
+        <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+        <a href="/terms.html" class="text-slate-400 hover:text-white transition">Terms</a>
+        <a href="/privacy.html" class="text-slate-400 hover:text-white transition">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-bg pt-32 pb-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">About SEA-COMPUTE</h1>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto">Cross-border cloud computing service reseller — bridging global GPU infrastructure to Southeast Asian developers and businesses.</p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-white mb-8">Our Mission</h2>
+      <div class="prose prose-invert max-w-none text-slate-300 space-y-4">
+        <p>SEA-COMPUTE was founded to solve a simple problem: developers in Southeast Asia deserve affordable, reliable GPU cloud computing — without the friction of cross-border payments, language barriers, or geographic restrictions.</p>
+        <p>We aggregate compute resources from leading global providers — Vast.ai, RunPod, TensorDock, and more — and deliver them through a unified platform optimized for the SEA market.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-16">
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <div class="text-3xl font-bold text-primary mb-2">17%</div>
+          <div class="text-sm text-slate-400">Average cost savings vs direct providers</div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <div class="text-3xl font-bold text-success mb-2">6+</div>
+          <div class="text-sm text-slate-400">Upstream GPU cloud partners</div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <div class="text-3xl font-bold text-warning mb-2">SEA</div>
+          <div class="text-sm text-slate-400">Focused on Southeast Asian market</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 bg-slate-900/50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-white mb-8">How It Works</h2>
+      <div class="space-y-6">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">1</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Browse & Compare</h3>
+            <p class="text-slate-400 text-sm">View real-time pricing across multiple GPU providers. Find the best fit for your workload and budget.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">2</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Pay Your Way</h3>
+            <p class="text-slate-400 text-sm">WireTransfer, USDT, Alipay — choose the payment method that works best for your region.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">3</div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Deploy Instantly</h3>
+            <p class="text-slate-400 text-sm">Get your GPU instance running in minutes. Full SSH access, pre-built templates, 24/7 monitoring.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+      <p>&copy; 2026 SEA-COMPUTE. Cross-border cloud computing service reseller.</p>
+      <div class="mt-4 flex justify-center gap-6">
+        <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
+        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy</a>
+        <a href="/contact.html" class="hover:text-slate-300 transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
