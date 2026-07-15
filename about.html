@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About · SEA-COMPUTE</title>
-  <meta name="description" content="About SEA-COMPUTE - Cross-border cloud computing marketplace for global small developers.">
+  <meta name="description" content="SEA-COMPUTE — Cross-border cloud computing marketplace for global small developers. $5 to start, student 50% off, transparent pricing.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary: '#2563EB', success: '#10B981' },
+          colors: { primary: '#2563EB', success: '#10B981', warning: '#F59E0B', danger: '#EF4444' },
           fontFamily: { sans: ['Inter', 'PingFang SC', 'sans-serif'] },
         },
       },
@@ -18,115 +18,132 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <style>
     .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%); }
     .hero-glow { background: radial-gradient(ellipse at 70% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%); }
   </style>
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased">
-  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
-        <span class="font-bold text-xl text-gray-900">SEA-COMPUTE</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="pricing.html" class="text-sm font-medium text-gray-600 hover:text-primary">Pricing</a>
-        <a href="about.html" class="text-sm font-medium text-primary">About</a>
-        <a href="terms.html" class="text-sm font-medium text-gray-600 hover:text-primary">Terms</a>
-        <a href="privacy.html" class="text-sm font-medium text-gray-600 hover:text-primary">Privacy</a>
-        <a href="index.html#register" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Get Started</a>
-      </nav>
+<body class="bg-slate-950 text-slate-200 font-sans">
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-white">SEA-COMPUTE</a>
+      <div class="hidden md:flex gap-8 text-sm">
+        <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+        <a href="/about.html" class="text-primary font-medium">About</a>
+        <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+        <a href="/terms.html" class="text-slate-400 hover:text-white transition">Terms</a>
+        <a href="/privacy.html" class="text-slate-400 hover:text-white transition">Privacy</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <section class="hero-bg min-h-[50vh] flex items-center pt-16 relative overflow-hidden">
+  <!-- Hero -->
+  <section class="hero-bg pt-32 pb-20 relative">
     <div class="hero-glow absolute inset-0"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
-        Cross-border Cloud Computing Marketplace
-        <span class="text-primary">for Global Small Developers</span>
-      </h1>
-      <p class="text-xl text-gray-300">Empowering developers worldwide with affordable, transparent compute access.</p>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">About SEA-COMPUTE</h1>
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto"><strong class="text-slate-200">Cross-border cloud computing marketplace for global small developers</strong></p>
     </div>
   </section>
 
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        SEA-COMPUTE is a cross-border cloud computing marketplace connecting global small developers with affordable GPU/CPU compute resources. We believe every developer deserves fair access to compute power, regardless of geography or budget.
-      </p>
-      <p class="text-lg text-gray-700 mb-6">
-        We aggregate upstream compute capacity and resell it to small developers worldwide through a transparent, monthly-billed marketplace — no long-term contracts, no hidden fees.
-      </p>
-
-      <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">What Makes Us Different</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-          <div class="text-3xl mb-3">💰</div>
-          <h3 class="font-bold text-gray-900 mb-2">Monthly Billing</h3>
-          <p class="text-sm text-gray-600">Pay only for what you use. No long-term commitments. Cancel anytime with no penalties.</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-          <div class="text-3xl mb-3">🔓</div>
-          <h3 class="font-bold text-gray-900 mb-2">Three No's Promise</h3>
-          <p class="text-sm text-gray-600">No freezing computing power · No locking balance · No freezing withdrawal.</p>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-          <div class="text-3xl mb-3">🌏</div>
-          <h3 class="font-bold text-gray-900 mb-2">Global Reach</h3>
-          <p class="text-sm text-gray-600">Localized payment methods including WorldFirst, PayPal, and regional bank transfers.</p>
-        </div>
-      </div>
-
-      <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Who We Serve</h2>
-      <p class="text-lg text-gray-700 mb-4">
-        SEA-COMPUTE serves small developers, indie teams, researchers, and startups across Southeast Asia, Latin America, Africa, and other emerging markets who need reliable compute without enterprise-level commitments.
-      </p>
-      <ul class="list-disc pl-6 text-gray-700 space-y-2">
-        <li>AI/ML engineers training small models</li>
-        <li>Indie game developers rendering assets</li>
-        <li>Students and researchers running experiments</li>
-        <li>Small teams building SaaS products</li>
-      </ul>
+  <!-- Vision -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-white mb-6">Our Vision</h2>
+      <p class="text-slate-300 leading-relaxed mb-4">We believe that access to production-grade cloud computing should not be a privilege of well-funded enterprises. Individual developers, students, and small teams building the next generation of AI applications, media pipelines, and SaaS products deserve the same pay-as-you-go economics, the same operational simplicity, and the same billing transparency as any Fortune-500 customer.</p>
+      <p class="text-slate-300 leading-relaxed">SEA-COMPUTE exists to close that gap. Our five-year vision is to become the default cross-border compute purchasing channel for the global long-tail of small developers, serving <strong class="text-white">one million active accounts across more than 60 non-sanctioned jurisdictions</strong>.</p>
     </div>
   </section>
 
-  <footer class="bg-gray-900 border-t border-gray-800 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center"><span class="text-white font-bold text-sm">SC</span></div>
-            <span class="font-bold text-xl text-white">SEA-COMPUTE</span>
-          </div>
-          <p class="text-sm text-gray-400">Cross-border cloud computing marketplace for global small developers</p>
+  <!-- Team -->
+  <section class="py-20 bg-slate-900/50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-white mb-6">Our Team</h2>
+      <p class="text-slate-300 leading-relaxed mb-4">SEA-COMPUTE is operated by a lean cross-functional team currently structured around <strong class="text-white">seventeen functional roles</strong> covering product, engineering, cross-border operations, compliance, finance, and customer support.</p>
+      <p class="text-slate-300 leading-relaxed">During the current growth phase the operating entity is a natural person; corporate incorporation is planned upon meeting the documented graduation criteria. Team members work under a shared operating discipline: transparent decision logs, single-source-of-truth product requirement documents, and a strict <strong class="text-white">"no-freeze, no-lock, no-delay"</strong> customer commitment that overrides any short-term revenue consideration.</p>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-white mb-8">Who We Serve</h2>
+      <div class="space-y-4">
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <h3 class="text-white font-semibold mb-1">👨‍💻 Individual Developers</h3>
+          <p class="text-slate-400 text-sm">Experimenting with generative AI, foundation-model fine-tuning, or personal-project inference workloads.</p>
         </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Product</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="pricing.html" class="hover:text-white">Pricing</a></li>
-            <li><a href="about.html" class="hover:text-white">About</a></li>
-          </ul>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <h3 class="text-white font-semibold mb-1">🚀 Small AI Startups</h3>
+          <p class="text-slate-400 text-sm">Pre-Series-A, typically 2-8 person teams needing intermittent training or evaluation runs without enterprise contract friction.</p>
         </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
-            <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
-          </ul>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <h3 class="text-white font-semibold mb-1">🎓 Top-tier University Students</h3>
+          <p class="text-slate-400 text-sm">Computer science, data science, or related fields — verified via academic e-mail (.edu or country-equivalent).</p>
         </div>
-        <div>
-          <h4 class="font-semibold text-white mb-3">Contact</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li>hello@sea-compute.com</li>
-            <li>privacy@sea-compute.com</li>
-          </ul>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <h3 class="text-white font-semibold mb-1">🎬 Independent Content Creators</h3>
+          <p class="text-slate-400 text-sm">YouTubers, streamers, indie animators running rendering, transcoding, and post-production workloads.</p>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+          <h3 class="text-white font-semibold mb-1">🏢 Mid-market SaaS Teams</h3>
+          <p class="text-slate-400 text-sm">Tier 2 by revenue — running scheduled batch inference or nightly model refreshes.</p>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-        <p>© 2026 SEA-COMPUTE. All rights reserved.</p>
+    </div>
+  </section>
+
+  <!-- 8 Commitments -->
+  <section class="py-20 bg-slate-900/50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-white mb-8">Eight Commitments</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-primary font-bold text-lg mb-1">$5 Min Top-up</div>
+          <p class="text-slate-400 text-sm">No minimum monthly commitment, no annual contract.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-success font-bold text-lg mb-1">Student 50% Off</div>
+          <p class="text-slate-400 text-sm">Verified academic status, published ceiling, transparent renewal.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-warning font-bold text-lg mb-1">10% Below Vast</div>
+          <p class="text-slate-400 text-sm">Headline unit price commitment, measured quarterly.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-primary font-bold text-lg mb-1">Second-level Metering</div>
+          <p class="text-slate-400 text-sm">Every GPU/CPU-second billed at published unit price.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-success font-bold text-lg mb-1">KYC-Lite 3-Stage</div>
+          <p class="text-slate-400 text-sm">First order needs only two data elements; escalation as spend grows.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-danger font-bold text-lg mb-1">Three-Never Rule</div>
+          <p class="text-slate-400 text-sm">Never freeze compute, never lock balance, never freeze withdrawal.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-warning font-bold text-lg mb-1">Transparent Pricing</div>
+          <p class="text-slate-400 text-sm">Every SKU listed; historic price changes archived publicly.</p>
+        </div>
+        <div class="bg-slate-900 rounded-lg p-5 border border-slate-800">
+          <div class="text-primary font-bold text-lg mb-1">Monthly Settlement</div>
+          <p class="text-slate-400 text-sm">Documented monthly cycle to preserve customer balance liquidity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+      <p>&copy; 2026 SEA-COMPUTE. Cross-border cloud computing service reseller.</p>
+      <div class="mt-4 flex justify-center gap-6">
+        <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
+        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy</a>
+        <a href="/contact.html" class="hover:text-slate-300 transition">Contact</a>
       </div>
     </div>
   </footer>
