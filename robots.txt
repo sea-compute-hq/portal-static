@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /admin*
-Sitemap: https://sea-compute.vercel.app/sitemap.xml
-
-# SEA-COMPUTE Portal · robots.txt · 2026-07-15
+Sitemap: https://sea-compute-hq.github.io/portal-static/sitemap.xml
